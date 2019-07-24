@@ -1,1 +1,56 @@
-<p>header works!</p>
+<header class="container-fluid bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand link" routerLink="home">
+            <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
+            roker
+        </a>
+        <button id="menu-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="services">Послуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="price">Ціни</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="contacts">Контакти</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Детальніше
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item link d-block d-sm-none" routerLinkActive="active" routerLink="car">Оформлення ТЗ</a>
+                        <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active" routerLink="car">Оформлення транспортних
+                            засобів</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="import">Імпорт</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="export">Експорт</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="eur1">EUR.1</a>
+                    </div>
+                </li>
+            </ul>
+            <address id="desktop-menu" class="navbar-nav d-flex flex-column mr-3">
+                <a href="tel:+380989839276" class="nav-link m-0 p-1"><b>+380989839276</b></a>
+                <a href="mailto:brokergor@gmail.com" target="_top" class="nav-link m-0 p-1">brokergor@gmail.com</a>
+            </address>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <!-- <div class="col-12 d-lg-none">
+            <address class="navbar-nav d-flex d-lg-none flex-column mr-3" id="address-mobile">
+                <a href="tel:+380989839276" class="nav-link m-0 p-0"><b>+380989839276</b></a>
+                <a href="mailto:brokergor@gmail.com" target="_top" class="nav-link m-0 p-0">brokergor@gmail.com</a>
+            </address>
+        </div> -->
+    </nav>
+</header>

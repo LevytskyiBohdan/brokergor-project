@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+}
+
+section>div>p {
+    text-indent: 1.5rem;
+}
+
+#home {
+    /* padding-top: 6.6rem; */
+    height: calc(100vh - 3.6rem) ;
+    background: url("https://firebasestorage.googleapis.com/v0/b/brokergor-project.appspot.com/o/1s_bgc.jpg?alt=media&token=3f580dee-ca94-40a0-bb7d-f01a88a43993");
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.home {
+    height: 70vh;
+    /* width: 70vw; */
+    background-color: rgba(0, 0, 0, 0.33);
+    border-radius: 20px;
+}
+
+#home h1 {
+    color: white;
+}
+
+#home button {
+    font-size: 2.2rem;
+}
+
+/* @Media query */
+@media (max-width: 575.98px) {
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    #home button {
+        font-size: 1.1rem;
+        width: 14em;
+        padding: .9em 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #home h1 {
+        font-size: 3rem;
+    }
+
+    #home button {
+        font-size: 1.5rem;
+        width: 19em;
+        padding: .5em 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #home h1 {
+        font-size: 3.5rem;
+    }
+
+    #home button {
+        font-size: 1.5rem;
+        height: 5rem;
+        width: 25em;
+        padding: .5em 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #home h1 {
+        font-size: 4rem;
+    }
+
+    #home button {
+        font-size: 1.5rem;
+        height: 6rem;
+        width: 17em;
+        padding: .5em 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    #home h1 {
+        font-size: 4.5rem;
+    }
+
+    #home button {
+        font-size: 1.9rem;
+        height: 8rem;
+        width: 17em;
+        padding: .5em 0;
+    }
+}

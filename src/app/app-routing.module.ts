@@ -8,6 +8,7 @@ import { CarComponent } from './pages/car/car.component';
 import { ExportComponent } from './pages/export/export.component';
 import { ImportComponent } from './pages/import/import.component';
 import { Eur1Component } from './pages/eur1/eur1.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'export', component: ExportComponent},
   {path: 'import', component: ImportComponent},
   {path: 'eur1', component: Eur1Component},
+  {path: 'admin', component: AdminComponent},
   {path: '**', redirectTo: '/home'},
 ];
 
