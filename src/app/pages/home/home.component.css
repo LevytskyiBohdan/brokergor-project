@@ -8,7 +8,7 @@ section>div>p {
 
 #home {
     /* padding-top: 6.6rem; */
-    height: calc(100vh - 3.6rem) ;
+    height: calc(100vh - 80px);
     background: url("https://firebasestorage.googleapis.com/v0/b/brokergor-project.appspot.com/o/1s_bgc.jpg?alt=media&token=3f580dee-ca94-40a0-bb7d-f01a88a43993");
     background-size: cover;
     box-sizing: border-box;
@@ -31,6 +31,9 @@ section>div>p {
 
 /* @Media query */
 @media (max-width: 575.98px) {
+    #home{
+        height: calc(100vh - 130px);
+    }
     #home h1 {
         font-size: 2rem;
     }
@@ -43,6 +46,9 @@ section>div>p {
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    #home{
+        height: calc(100vh - 130px);
+    }
     #home h1 {
         font-size: 3rem;
     }
@@ -55,6 +61,9 @@ section>div>p {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    #home{
+        height: calc(100vh - 130px);
+    }
     #home h1 {
         font-size: 3.5rem;
     }
@@ -68,6 +77,9 @@ section>div>p {
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+    #home{
+        height: calc(100vh - 80px);
+    }
     #home h1 {
         font-size: 4rem;
     }
@@ -81,6 +93,9 @@ section>div>p {
 }
 
 @media (min-width: 1200px) {
+    #home{
+        height: calc(100vh - 80px);
+    }
     #home h1 {
         font-size: 4.5rem;
     }

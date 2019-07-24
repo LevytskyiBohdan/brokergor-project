@@ -1,0 +1,13 @@
+#eur1 li{
+  list-style-type: none;
+}
+
+
+#eur1 li.change::before {
+  content: url("https://firebasestorage.googleapis.com/v0/b/brokergor-project.appspot.com/o/angle-double-right-solid.svg?alt=media&token=359f1b7a-6e31-40fd-a318-e6fa30777143");
+  padding-right: .5rem;
+  margin-left: -1rem;
+  display: inline-block;
+  width: 1rem;
+
+}
