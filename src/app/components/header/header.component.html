@@ -1,4 +1,4 @@
-<header class="container-fluid bg-dark sticky-top">
+<header class="container-fluid bg-dark position-sticky sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand link" routerLink="/home">
             <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
@@ -9,16 +9,34 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+            </label>
+          </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/services">Послуги</a>
                 </li>
-                <li class="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/price">Ціни</a>
                 </li>
-                <li class="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/contacts">Контакти</a>
+                </li>
+
+
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/services">Послуги</a>
+                </li>
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/price">Ціни</a>
+                </li>
+                <li class="nav-item d-none d-lg-flex">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/contacts">Контакти</a>
                 </li>
 
@@ -38,6 +56,7 @@
                         <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про нас</a>
                     </div>
                 </li>
                 <!-- Mobile dropdown end -->
@@ -58,6 +77,7 @@
                             <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
+                            <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про нас</a>
                         </div>
                     </li>
                     <!-- Desktop dropdown end -->
@@ -72,11 +92,6 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-        <!-- <div class="col-12 d-lg-none">
-            <address class="navbar-nav d-flex d-lg-none flex-column mr-3" id="address-mobile">
-                <a href="tel:+380989839276" class="nav-link m-0 p-0"><b>+380989839276</b></a>
-                <a href="mailto:brokergor@gmail.com" target="_top" class="nav-link m-0 p-0">brokergor@gmail.com</a>
-            </address>
-        </div> -->
+        
     </nav>
 </header>

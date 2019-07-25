@@ -1,54 +1,54 @@
 {
-    "price":[
-        {
-            "id": 1,
-            "description": "Оформлення ПП основний аркуш",
-            "price": 250.00
-        },
-        {
-            "id": 2,
-            "description": "Оформлення ПП додатковий аркуш (за наступний товар)",
-            "price": 100.00
-        },
-        {
-            "id": 3,
-            "description": "Оформлення ПД основний аркуш",
-            "price": 350.00
-        },
-        {
-            "id": 4,
-            "description": "Оформлення ПД додатковий аркуш (за наступний товар)",
-            "price": 100.00
-        },
-        {
-            "id": 5,
-            "description": "Оформлення ІМ основний аркуш МД-2",
-            "price": 1500.00
-        },
-        {
-            "id": 6,
-            "description": "Оформлення ІМ додатковий аркуш МД-3",
-            "price": 500.00
-        },
-        {
-            "id": 7,
-            "description": "Оформлення ІМ додатковий аркуш МД-6",
-            "price": 100.00
-        },
-        {
-            "id": 8,
-            "description": "Оформлення ДМВ",
-            "price": 250.00
-        },
-        {
-            "id": 9,
-            "description": "Оформлення ЕК",
-            "price": 1500.00
-        },
-        {
-            "id": 10,
-            "description": "Проведення через ЕД-вікно (передбачений вид контролю)",
-            "price": 150.00
-        }
-    ]
+  "price": [
+    {
+      "id": 1,
+      "serviceDescription": "Оформлення ПП основний аркуш",
+      "priceDescription": 255
+    },
+    {
+      "id": 2,
+      "serviceDescription": "Оформлення ПП додатковий аркуш (за наступний товар)",
+      "priceDescription": 100
+    },
+    {
+      "id": 3,
+      "serviceDescription": "Оформлення ПД основний аркуш",
+      "priceDescription": 350
+    },
+    {
+      "id": 4,
+      "serviceDescription": "Оформлення ПД додатковий аркуш (за наступний товар)",
+      "priceDescription": 100
+    },
+    {
+      "id": 5,
+      "serviceDescription": "Оформлення ІМ основний аркуш МД-2",
+      "priceDescription": 1500
+    },
+    {
+      "id": 6,
+      "serviceDescription": "Оформлення ІМ додатковий аркуш МД-3",
+      "priceDescription": 500
+    },
+    {
+      "id": 7,
+      "serviceDescription": "Оформлення ІМ додатковий аркуш МД-6",
+      "priceDescription": 100
+    },
+    {
+      "id": 8,
+      "serviceDescription": "Оформлення ДМВ",
+      "priceDescription": 250
+    },
+    {
+      "id": 9,
+      "serviceDescription": "Оформлення ЕК",
+      "priceDescription": 1500
+    },
+    {
+      "id": 10,
+      "serviceDescription": "Проведення через ЕД-вікно (передбачений вид контролю)",
+      "priceDescription": 150
+    }
+  ]
 }

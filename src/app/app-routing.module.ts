@@ -9,6 +9,10 @@ import { ExportComponent } from './pages/export/export.component';
 import { ImportComponent } from './pages/import/import.component';
 import { Eur1Component } from './pages/eur1/eur1.component';
 import { AdminComponent } from './admin/admin.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.component';
+import { AdminPriceComponent } from './admin/admin-price/admin-price.component';
+import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 
 
 const routes: Routes = [
@@ -21,7 +25,13 @@ const routes: Routes = [
   {path: 'export', component: ExportComponent},
   {path: 'import', component: ImportComponent},
   {path: 'eur1', component: Eur1Component},
-  {path: 'admin', component: AdminComponent},
+  {path: 'comments', component: CommentsComponent},
+  {path: 'admin', component: AdminComponent, children: [
+    {path: '', redirectTo: 'comments', pathMatch: 'full'},
+    {path: 'comments', component: AdminCommentsComponent},
+    {path: 'price', component: AdminPriceComponent},
+    {path: 'contacts', component: AdminContactsComponent},
+  ]},
   {path: '**', redirectTo: '/home'},
 ];
 

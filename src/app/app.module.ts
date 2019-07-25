@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,11 @@ import { CarComponent } from './pages/car/car.component';
 import { ExportComponent } from './pages/export/export.component';
 import { ImportComponent } from './pages/import/import.component';
 import { Eur1Component } from './pages/eur1/eur1.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { AdminPriceComponent } from './admin/admin-price/admin-price.component';
+import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +34,17 @@ import { Eur1Component } from './pages/eur1/eur1.component';
     CarComponent,
     ExportComponent,
     ImportComponent,
-    Eur1Component
+    Eur1Component,
+    AdminCommentsComponent,
+    CommentsComponent,
+    AdminPriceComponent,
+    AdminContactsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
