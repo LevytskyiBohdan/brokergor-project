@@ -9,14 +9,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Radio
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Radio
-            </label>
-          </div>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -30,10 +23,10 @@
                 </li>
 
 
-                <li class="nav-item d-none d-lg-flex">
+                <li class="nav-item d-none d-xl-flex">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/services">Послуги</a>
                 </li>
-                <li class="nav-item d-none d-lg-flex">
+                <li class="nav-item d-none d-xl-flex">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/price">Ціни</a>
                 </li>
                 <li class="nav-item d-none d-lg-flex">
@@ -47,6 +40,8 @@
                         Детальніше
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <a class="nav-link link" routerLinkActive="active" routerLink="/price">Ціни</a>
+                        <a class="nav-link link" routerLinkActive="active" routerLink="/services">Послуги</a>
                         <a class="dropdown-item link d-block d-sm-none"  routerLinkActive="active"
                             routerLink="/car">Оформлення ТЗ</a>
                         <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
@@ -68,6 +63,8 @@
                             Детальніше
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link link" routerLinkActive="active" routerLink="/price">Ціни</a>
+                            <a class="nav-link link" routerLinkActive="active" routerLink="/services">Послуги</a>
                             <a class="dropdown-item link d-block d-sm-none"  routerLinkActive="active"
                                 routerLink="/car">Оформлення ТЗ</a>
                             <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
@@ -83,6 +80,16 @@
                     <!-- Desktop dropdown end -->
 
             </ul>
+
+            <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
+                </label>
+              </div>
+
             <address id="desktop-menu" class="navbar-nav d-flex flex-column mr-3">
                 <a href="tel:+380989839276" class="nav-link m-0 p-1"><b>+380989839276</b></a>
                 <a href="mailto:brokergor@gmail.com" target="_top" class="nav-link m-0 p-1">brokergor@gmail.com</a>
