@@ -13,6 +13,11 @@ import { CommentsComponent } from './pages/comments/comments.component';
 import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.component';
 import { AdminPriceComponent } from './admin/admin-price/admin-price.component';
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
+import { CalculatorComponent } from './pages/calculator/calculator.component';
+import { PassengerCarComponent } from './pages/calculator/passenger-car/passenger-car.component';
+import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.component';
+import { CargoCarComponent } from './pages/calculator/cargo-car/cargo-car.component';
+import { BusesComponent } from './pages/calculator/buses/buses.component';
 
 
 const routes: Routes = [
@@ -31,6 +36,13 @@ const routes: Routes = [
     {path: 'comments', component: AdminCommentsComponent},
     {path: 'price', component: AdminPriceComponent},
     {path: 'contacts', component: AdminContactsComponent},
+  ]},
+  {path: 'calculator', component: CalculatorComponent, children:[
+    {path: '', redirectTo: 'passenger-car', pathMatch: 'full'},
+    {path: 'passenger-car', component: PassengerCarComponent},
+    {path: 'motorcycle', component: MotorcycleComponent},
+    {path: 'cargo-car', component: CargoCarComponent},
+    {path: 'buses', component: BusesComponent},
   ]},
   {path: '**', redirectTo: '/home'},
 ];

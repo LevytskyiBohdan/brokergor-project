@@ -20,6 +20,11 @@ import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.co
 import { CommentsComponent } from './pages/comments/comments.component';
 import { AdminPriceComponent } from './admin/admin-price/admin-price.component';
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
+import { CalculatorComponent } from './pages/calculator/calculator.component';
+import { PassengerCarComponent } from './pages/calculator/passenger-car/passenger-car.component';
+import { CargoCarComponent } from './pages/calculator/cargo-car/cargo-car.component';
+import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.component';
+import { BusesComponent } from './pages/calculator/buses/buses.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.co
     AdminCommentsComponent,
     CommentsComponent,
     AdminPriceComponent,
-    AdminContactsComponent
+    AdminContactsComponent,
+    CalculatorComponent,
+    PassengerCarComponent,
+    CargoCarComponent,
+    MotorcycleComponent,
+    BusesComponent
   ],
   imports: [
     BrowserModule,

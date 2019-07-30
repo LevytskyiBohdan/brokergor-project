@@ -9,7 +9,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -21,6 +21,7 @@
                 <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/contacts">Контакти</a>
                 </li>
+
 
 
                 <li class="nav-item d-none d-xl-flex">
@@ -39,54 +40,63 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Детальніше
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <a class="dropdown-item link d-block d-sm-none"  routerLinkActive="active"
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-toggle="collapse"
+                        data-target="#navbarSupportedContent">
+                        <a class="dropdown-item link d-block d-sm-none" routerLinkActive="active"
                             routerLink="/car">Оформлення ТЗ</a>
                         <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
                             routerLink="/car">Оформлення транспортних
                             засобів</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/calculator">Калькулятор
+                            розмитнення</a>
+
                         <a class="dropdown-item link" routerLinkActive="active" routerLink="/import">Імпорт</a>
                         <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
-                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про нас</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про
+                            нас</a>
                     </div>
                 </li>
                 <!-- Mobile dropdown end -->
 
                 <!-- Desktop dropdown begin -->
                 <li class="nav-item dropdown d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Детальніше
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item link d-xl-none" routerLinkActive="active" routerLink="/price">Ціни</a>
-                            <a class="dropdown-item link d-xl-none" routerLinkActive="active" routerLink="/services">Послуги</a>
-                            <a class="dropdown-item link d-block d-sm-none"  routerLinkActive="active"
-                                routerLink="/car">Оформлення ТЗ</a>
-                            <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
-                                routerLink="/car">Оформлення транспортних
-                                засобів</a>
-                            <a class="dropdown-item link" routerLinkActive="active" routerLink="/import">Імпорт</a>
-                            <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
-                            <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про нас</a>
-                        </div>
-                    </li>
-                    <!-- Desktop dropdown end -->
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Детальніше
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item link d-xl-none" routerLinkActive="active" routerLink="/price">Ціни</a>
+                        <a class="dropdown-item link d-xl-none" routerLinkActive="active"
+                            routerLink="/services">Послуги</a>
+                        <a class="dropdown-item link d-block d-sm-none" routerLinkActive="active"
+                            routerLink="/car">Оформлення ТЗ</a>
+                        <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
+                            routerLink="/car">Оформлення транспортних
+                            засобів</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/calculator">Калькулятор
+                            розмитнення</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/import">Імпорт</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
+                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/comments">Відгуки про
+                            нас</a>
+                    </div>
+                </li>
+                <!-- Desktop dropdown end -->
 
             </ul>
 
             <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
                 <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
+                    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
+                    <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
                 </label>
-              </div>
+            </div>
 
             <address id="desktop-menu" class="navbar-nav d-flex flex-column mr-3">
                 <a href="tel:+380989839276" class="nav-link m-0 p-1"><b>+380989839276</b></a>
@@ -97,6 +107,6 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-        
+
     </nav>
 </header>
