@@ -18,6 +18,7 @@ import { PassengerCarComponent } from './pages/calculator/passenger-car/passenge
 import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.component';
 import { CargoCarComponent } from './pages/calculator/cargo-car/cargo-car.component';
 import { BusesComponent } from './pages/calculator/buses/buses.component';
+import { AdminSliderComponent } from './admin/admin-slider/admin-slider.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
     {path: 'comments', component: AdminCommentsComponent},
     {path: 'price', component: AdminPriceComponent},
     {path: 'contacts', component: AdminContactsComponent},
+    {path: 'sliderAdmin', component: AdminSliderComponent},
   ]},
   {path: 'calculator', component: CalculatorComponent, children:[
     {path: '', redirectTo: 'passenger-car', pathMatch: 'full'},

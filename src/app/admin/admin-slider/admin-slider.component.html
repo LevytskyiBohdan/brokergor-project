@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <div class="custom-file">
+                    <input (change)="upload($event)" accept=".png,.jpg,.jpeg" type="file" class="custom-file-input"
+                        id="validatedCustomFile" required>
+                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                </div>
+                <div class="progress mt-2">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                </div>
+                <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                    <button type="button" class="btn btn-primary" (click)="task.pause()" [disabled]="state === 'paused'">Pause</button>
+                    <button type="button" class="btn btn-primary" (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="task.resume()" [disabled]="state === 'running'">Resume</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
