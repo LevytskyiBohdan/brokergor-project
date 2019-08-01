@@ -50,5 +50,26 @@
       "serviceDescription": "Проведення через ЕД-вікно (передбачений вид контролю)",
       "priceDescription": 150
     }
+  ],
+  "slider": [
+    {
+      "id": 0,
+      "firstTitle": "МИТНЕ ОФОРМЛЕННЯ",
+      "secondTitle": "ЕКСПОРТУ / ІМПОРТУ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2F3t2nqqic4pl?alt=media&token=c42178c2-c0df-4cb0-a3a3-f22e2893499e"
+    },
+    {
+      "id": 1,
+      "firstTitle": "МИТНЕ ОФОРМЛЕННЯ",
+      "secondTitle": "ТРАНСПОРТНИХ ЗАСОБІВ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fg42xadr49w?alt=media&token=675f9521-6df6-411b-9a75-b7e89fdb0025"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 0,
+      "tel": "+380989839276",
+      "email": "brokergor@gmail.com"
+    }
   ]
 }

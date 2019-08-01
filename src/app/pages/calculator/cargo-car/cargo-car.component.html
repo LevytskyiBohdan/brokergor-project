@@ -19,16 +19,16 @@
                 <div class="form-group">
                     <label for="country">Країна похождення</label>
                     <select class="form-control" id="country" [(ngModel)]="country" name="country">
-                        <option [ngValue]="'0.1'" selected>інші</option>
-                        <option [ngValue]="'0.063'">ЄАВТ</option>
-                        <option [ngValue]="'0.063'">ЄС</option>
-                        <option [ngValue]="'0'">Канада</option>
+                        <option [ngValue]="'1'" selected>інші</option>
+                        <option [ngValue]="'2'">ЄАВТ</option>
+                        <option [ngValue]="'3'">ЄС</option>
+                        <option [ngValue]="'4'">Канада</option>
                     </select>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
                     <label for="age">Вік авто</label>
                     <select class="form-control" id="age" [(ngModel)]="age" name="age">
-                        <option [ngValue]="'1'" selected>до 5 років</option>
+                        <option [ngValue]="'2'" selected>до 5 роківв</option>
                         <option [ngValue]="'3'">від 5 до 8 років</option>
                         <option [ngValue]="'4'">від 8 років</option>
                     </select>
@@ -48,11 +48,11 @@
                     </div>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
-                    <label for="age">Повна маса</label>
-                    <select class="form-control" id="age" [(ngModel)]="age" name="age">
+                    <label for="weight">Повна маса</label>
+                    <select class="form-control" id="weight" [(ngModel)]="weight" name="weight">
                         <option [ngValue]="'1'" selected>до 5 тон</option>
-                        <option [ngValue]="'3'">від 5 до 20 тон</option>
-                        <option [ngValue]="'4'">від 20 тон</option>
+                        <option [ngValue]="'2'">від 5 до 20 тон</option>
+                        <option [ngValue]="'3'">від 20 тон</option>
                     </select>
                 </div>
                 <button type="button" class="btn btn-success btn-block mt-4" (click)="culcPrice()">Розрахувати вартість</button>

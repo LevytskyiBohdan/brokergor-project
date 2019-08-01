@@ -1,0 +1,9 @@
+.animate{
+    display: block;
+    font-size: 2rem;
+    color: white;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 100;
+}

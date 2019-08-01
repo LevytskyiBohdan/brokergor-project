@@ -1,8 +1,8 @@
 <section class="container-fluid p-0 d-lg-none">
     <nav class="col-12  pb-3 nnavbar navbar-dark bg-dark">
         <address class="navbar-nav d-flex d-lg-none flex-column mr-3" id="address-mobile">
-            <a href="tel:+380989839276" class="nav-link m-0 p-0"><b>+380989839276</b></a>
-            <a href="mailto:brokergor@gmail.com" target="_top" class="nav-link m-0 p-0">brokergor@gmail.com</a>
+            <a *ngFor="let item of homeContact" href="tel:{{item.tel}}" class="nav-link m-0 p-0"><b>{{item.tel}}</b></a>
+            <a *ngFor="let item of homeContact" href="mailto:{{item.email}}" target="_top" class="nav-link m-0 p-0">{{item.email}}</a>
         </address>
     </nav>
 </section>
@@ -12,31 +12,19 @@
             <div class="bd-example" style="height: calc(100vh - 80px);">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" *ngFor="let item1 of slider; let j=index; first as firstElem" [ngClass]="{'active': firstElem}" data-slide-to=""></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2F3t2nqqic4pl?alt=media&token=c42178c2-c0df-4cb0-a3a3-f22e2893499e"
-                                class="d-block w-100" alt="...">
+                        <div class="carousel-item" *ngFor="let item of slider; first as isFirst" [ngClass]="{'active': isFirst}">
+                            <img src="{{item.image}}}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-block">
-                                <h5>МИТНЕ ОФОРМЛЕННЯ</h5>
-                                <p>ЕКСПОРТУ / ІМПОРТУ</p>
-                                <button class="btn btn-light">ОТРИМАТИ БЕЗКОШТОВНУ КОНСУЛЬТАЦІЮ</button>
-                                <i class="fas fa-arrow-down mt-5" style="display: block; font-size: 2rem"></i>
+                                <h5>{{item.firstTitle}}</h5>
+                                <p>{{item.secondTitle}}</p>
+                                <button class="btn btn-light mb-4">ОТРИМАТИ БЕЗКОШТОВНУ КОНСУЛЬТАЦІЮ</button><br>
+                                <button class="btn btn-light">РОЗРАХУВАТИ ВАРТІСТЬ РОЗМИТНЕННЯ АВТО</button>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fg42xadr49w?alt=media&token=675f9521-6df6-411b-9a75-b7e89fdb0025"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-block">
-                                <h5>МИТНЕ ОФОРМЛЕННЯ</h5>
-                                <p>ТРАНСПОРТНИХ ЗАСОБІВ</p>
-                                <button class="btn btn-light">ОТРИМАТИ БЕЗКОШТОВНУ КОНСУЛЬТАЦІЮ</button>
-                            </div>
-                        </div>
-
-                        
+                        <i class="fas fa-arrow-down mt-5 position-absolute animate" style="display: block; font-size: 2rem; color: white; top: 75%; left: 50%; transform: translate(-50%, -50%);"></i>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

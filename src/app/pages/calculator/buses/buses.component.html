@@ -1,1 +1,74 @@
-<p>buses works!</p>
+<div class="container">
+        <div class="row pt-3 pb-5">
+            <div class="col-12 col-lg 6">
+                <form class="pt-3 pb-3">
+                    <div class="form-group">
+                        <label for="fuel">Пальне</label>
+                        <select class="form-control" id="fuel" [(ngModel)]="fuel" name="fuel">
+                            <option [ngValue]="'fuel'">бензин</option>
+                            <option [ngValue]="'fuelDisel'">дизель</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Країна похождення</label>
+                        <select class="form-control" id="country" [(ngModel)]="country" name="country">
+                            <option [ngValue]="'1'" selected>інші</option>
+                            <option [ngValue]="'2'">ЄАВТ</option>
+                            <option [ngValue]="'3'">ЄС</option>
+                            <option [ngValue]="'4'">Канада</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Вік авто</label>
+                        <select class="form-control" id="age" [(ngModel)]="age" name="age">
+                            <option [ngValue]="'1'" selected>до 8 років</option>
+                            <option [ngValue]="'2'">від 8 років</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Вартість авто за кордоном</label>
+                        <div class="form-inline">
+                            <input [(ngModel)]="price" name="price" type="number" class="form-control col-9 col-md-10" id="price">
+                        <span class="pl-2 pl-sm-4">EUR</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="engine">Робочий об'єм двигуна</label>
+                        <div class="form-inline">
+                            <input [(ngModel)]="engine" name="price" type="engine" class="form-control col-9 col-md-10" id="engine">
+                        <span class="pl-2 pl-sm-4">см<sup>3</sup></span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-block mt-4" (click)="culcPrice()">Розрахувати вартість</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6 pt-5 pt-lg-3 border border-dark">          
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Тип податку</th>
+                        <th scope="col">Звичайна ставка</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ввізне мито:</td>
+                        <td>{{importDuty}}<span *ngIf="importDuty>0"> EUR</span></td>
+                      </tr>
+                      <tr>
+                        <td>Акцизне мито:</td>
+                        <td>{{exciseDuty}}<span *ngIf="exciseDuty>0"> EUR</span></td>
+                      </tr>
+                      <tr> 
+                        <td>ПДВ:</td>
+                        <td>{{VAT}}<span *ngIf="VAT>0"> EUR</span></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold" style="line-height: 2.5rem">Вартість авто із розмитненням:</td>
+                        <td class="font-weight-bold text-success" style="font-size: 1.5rem">{{fullPrice}}<span *ngIf="fullPrice>0"> EUR</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>

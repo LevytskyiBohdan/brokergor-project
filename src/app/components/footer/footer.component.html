@@ -4,8 +4,8 @@
             <h5 class="text-light">Контакти</h5>
             <p class="text-light"><b>Львівська обл., Городоцький р-н, м. Городок</b></p>
             <p class="text-light">ПН-ПТ: 9:00 - 18:00 | СБ, НД : Вихідний</p>
-            <p class="text-light">Телефон: <a href="tel:+380989839276">+380989839276</a></p>
-            <p class="text-light">Email: <a href="mailto:brokergor@gmail.com">brokergor@gmail.com</a></p>
+            <p *ngFor="let item of footerContact" class="text-light">Телефон: <a href="tel:{{item.tel}}">{{item.tel}}</a></p>
+            <p class="text-light">Email: <a *ngFor="let item of footerContact" href="mailto: {{item.email}}">{{item.email}}</a></p>
         </div>
         <div class="navbar navbar-dark col-12 col-sm-12 col-md-6">
             <div class="row">
