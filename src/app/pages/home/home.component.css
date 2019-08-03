@@ -2,15 +2,6 @@
     box-sizing: border-box;
 }
 
-/* section>div>p {
-    text-indent: 1.5rem;
-} */
-
-
-#home {
-    /* height: 80vh; */
-}
-
 #home button:hover, .card button:hover {
     color: #fff;
     -webkit-box-shadow: inset 0 0 0 28px #791112;
