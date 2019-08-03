@@ -1,5 +1,5 @@
-<header class="container-fluid bg-dark position-sticky sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header class="container-fluid  position-sticky sticky-top" [ngClass]="{'bg-light': siteTheme, 'bg-dark': !siteTheme}">
+    <nav class="navbar navbar-expand-lg " [ngClass]="{'navbar-light bg-light': siteTheme,'bg-dark navbar-dark': !siteTheme}">
         <a class="navbar-brand link" routerLink="/home">
             <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
             roker
@@ -83,10 +83,10 @@
             </ul>
 
             <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
-                <label class="btn btn-secondary" (click)="lightThem()" [ngClass]="{'active': siteThem}">
+                <label class="btn btn-secondary" (click)="toggleTheme(true)" [ngClass]="{'active': siteTheme}">
                     <input  type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
                 </label>
-                <label class="btn btn-secondary" (click)="darkThem()" [ngClass]="{'active': !siteThem}">
+                <label class="btn btn-secondary" (click)="toggleTheme(false)" [ngClass]="{'active': !siteTheme}">
                     <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
                 </label>
             </div>

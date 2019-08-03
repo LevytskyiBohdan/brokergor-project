@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IContact } from 'src/app/shared/interfaces/contact.interface';
 import { ContactService } from 'src/app/shared/services/contact.service';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,11 @@ export class FooterComponent implements OnInit {
   tel: string;
   email: string;
 
-  constructor(private ContactServiceIn: ContactService) { }
+  siteTheme: boolean = false;
+
+  constructor(private ContactServiceIn: ContactService, private ThemeService: ThemeService) { 
+    
+  }
 
   ngOnInit() {
     this.getContact();

@@ -26,6 +26,13 @@ export class AdminSliderComponent implements OnInit {
   downloadURL: Observable<string>;
   image: string = null;
 
+  refSM: AngularFireStorageReference;
+  taskSM: AngularFireUploadTask;
+  uploadStateSM: Observable<string>;
+  uploadProgressSM: Observable<number>;
+  downloadURLsm: Observable<string>;
+  imageSM: string = null;
+
 
   constructor(private afStorage: AngularFireStorage, private SlideServiceIn: SliderService) { }
 
@@ -50,6 +57,7 @@ export class AdminSliderComponent implements OnInit {
       this.firstTitle,
       this.secondTitle,
       this.image,
+      this.imageSM,
     );
     newSlide.id = this.adminSlide.slice(-1)[0].id + 1;
 
@@ -85,6 +93,20 @@ export class AdminSliderComponent implements OnInit {
       finalize(()=>{
         this.downloadURL = this.ref.getDownloadURL();
         this.downloadURL.subscribe(url => this.image = url)
+      })
+    ).subscribe()
+  }
+
+  public uploadSMImage(event):void{
+    const id = Math.random().toString(36).substring(2);
+    this.refSM = this.afStorage.ref(`images/slider/${id}`);
+    this.taskSM = this.refSM.put(event.target.files[0]);
+    this.uploadStateSM = this.taskSM.snapshotChanges().pipe(map(s => s.state));
+    this.uploadProgressSM = this.taskSM.percentageChanges();
+    this.taskSM.snapshotChanges().pipe(
+      finalize(()=>{
+        this.downloadURLsm = this.refSM.getDownloadURL();
+        this.downloadURLsm.subscribe(url => this.imageSM = url)
       })
     ).subscribe()
   }

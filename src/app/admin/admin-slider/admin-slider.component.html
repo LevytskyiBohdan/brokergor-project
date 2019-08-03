@@ -11,10 +11,11 @@
                     <label for="title2">Заголовок 2</label>
                     <input [(ngModel)]="secondTitle" name="secondTitle" type="text" class="form-control" id="title2" placeholder="заголовок 2..">
                 </div>
+                <!-- big image -->
                 <div class="custom-file">
                     <input (change)="upload($event)" accept=".png,.jpg,.jpeg" type="file" class="custom-file-input"
                         id="validatedCustomFile" required>
-                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    <label class="custom-file-label" for="validatedCustomFile">Виберіть картинку 16:9</label>
                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>
                 <div class="progress mt-3">
@@ -33,6 +34,29 @@
                     <button type="button" class="btn btn-primary" (click)="task.resume()"
                         [disabled]="state === 'running'">Resume</button>
                 </div>
+                <!-- small image -->
+                <div class="custom-file mt-3">
+                        <input (change)="uploadSMImage($event)" accept=".png,.jpg,.jpeg" type="file" class="custom-file-input"
+                            id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Виберіть картинку 3:4</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                    <div class="progress mt-3">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            [style.width]="(uploadProgressSM | async) + '%'" [attr.aria-valuenow]="(uploadProgressSM | async)"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div *ngIf="downloadURLsm | async; let downloadSrc" class="alert alert-info mt-3" role="alert">
+                        File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                    </div>
+                    <div class="btn-group mt-3 mb-3" role="group" *ngIf="uploadStateSM | async; let state">
+                        <button type="button" class="btn btn-primary" (click)="task.pause()"
+                            [disabled]="state === 'paused'">Pause</button>
+                        <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                            [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                        <button type="button" class="btn btn-primary" (click)="task.resume()"
+                            [disabled]="state === 'running'">Resume</button>
+                    </div>
                 <button class="btn btn-success btn-block mt-3" (click)="isAddSlide()">Додати слайд</button>
             </form>
         </div>

@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
     this.SliderServiceIn.getSlide().subscribe(
       data =>{
         this.slider = data;
+        console.log(this.slider);
+        
       },
       err =>{
         console.log(err);

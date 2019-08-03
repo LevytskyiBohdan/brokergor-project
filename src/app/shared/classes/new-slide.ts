@@ -5,6 +5,7 @@ export class NewSlide implements ISlide {
         public id: number,
         public firstTitle: string,
         public secondTitle: string,
-        public image: string,    
+        public image: string, 
+        public imageSM: string,   
     ){}
 }

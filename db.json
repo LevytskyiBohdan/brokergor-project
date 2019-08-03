@@ -53,16 +53,18 @@
   ],
   "slider": [
     {
-      "id": 0,
+      "id": 4,
       "firstTitle": "МИТНЕ ОФОРМЛЕННЯ",
-      "secondTitle": "ЕКСПОРТУ / ІМПОРТУ",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2F3t2nqqic4pl?alt=media&token=c42178c2-c0df-4cb0-a3a3-f22e2893499e"
+      "secondTitle": "ЕКСПОРТУ/ІМПОРТУ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fpv6kqtl5a8?alt=media&token=e00cead8-db06-4650-9722-6ae00e512fe0",
+      "imageSM": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2F1k4uczzhvyb?alt=media&token=2529ae83-9723-46c1-be26-773a4eb1ceb7"
     },
     {
-      "id": 1,
+      "id": 5,
       "firstTitle": "МИТНЕ ОФОРМЛЕННЯ",
       "secondTitle": "ТРАНСПОРТНИХ ЗАСОБІВ",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fg42xadr49w?alt=media&token=675f9521-6df6-411b-9a75-b7e89fdb0025"
+      "image": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fublki6zffpk?alt=media&token=8ff10539-3de9-4280-92bf-51875a69088e",
+      "imageSM": "https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fslider%2Fajrh11j0e1l?alt=media&token=e4ded581-239c-48cb-9add-2b318b16722f"
     }
   ],
   "contacts": [

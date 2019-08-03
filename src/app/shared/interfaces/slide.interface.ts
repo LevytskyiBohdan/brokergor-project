@@ -3,4 +3,5 @@ export interface ISlide {
     firstTitle: string;
     secondTitle: string;
     image: string;
+    imageSM: string;
 }
