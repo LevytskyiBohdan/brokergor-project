@@ -18,17 +18,29 @@ export class PriceComponent implements OnInit {
   ngOnInit() {
   }
   private getPrice(): void{
-    this.PriceServiceIn.getPrice().subscribe(
-      data =>{
-        this.price = data;
-        // console.log(data);
-      },
-      err =>{
-        console.log(err);
-      }
-    );
+    this.PriceServiceIn.getPrice().subscribe(actionArray => {
+      this.price = actionArray.map(item => {
+        
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as IPrice;
+      })
+    });
+    
   };
 
 
+
+
+  // this.PriceServiceIn.getPrice().subscribe(
+  //   data =>{
+  //     // this.price = data;
+  //     console.log(data);
+  //   },
+  //   err =>{
+  //     console.log(err);
+  //   }
+  // );
 
 }

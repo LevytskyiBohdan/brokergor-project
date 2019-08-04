@@ -31,6 +31,7 @@ import { CargoCarComponent } from './pages/calculator/cargo-car/cargo-car.compon
 import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.component';
 import { BusesComponent } from './pages/calculator/buses/buses.component';
 import { AdminSliderComponent } from './admin/admin-slider/admin-slider.component';
+import { PriceService } from './shared/services/price.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { AdminSliderComponent } from './admin/admin-slider/admin-slider.componen
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [],
+  providers: [PriceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

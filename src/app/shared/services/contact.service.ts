@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IContact } from '../interfaces/contact.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
-import { ISlide } from '../interfaces/slide.interface';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +12,33 @@ export class ContactService {
   private url: string;
 
 
-  constructor(private http: HttpClient) {
-    this.url = 'http://localhost:3000/contacts'
+  constructor(private http: HttpClient, private AngularFirestore: AngularFirestore) {
+    // this.url = 'http://localhost:3000/contacts'
    }
 
-   getData(): Array<IContact>{
-     return this.data;
+  //  getData(): Array<IContact>{
+  //    return this.data;
+  //  }
+
+   public getContact(){
+     return this.AngularFirestore.collection('contact').snapshotChanges();
    }
 
-   public getContact(): Observable<Array<IContact>>{
-     return this.http.get<Array<IContact>>(this.url);
+   public editContact(id, phone, email): void{
+     let data = {"phone": phone, "email": email}     
+     this.AngularFirestore.doc('contact/' + id).update(data);
    }
 
-   public editContact(contact: IContact): Observable<Array<IContact>>{
-     return this.http.put<Array<IContact>>(`${this.url}/${contact.id}`, contact);
-   } 
+  //  public saveEdit(id){
+  //   let data = Object.assign({id}, form.value);
+  //   delete data.id;
+  //   // console.log(form);
+  //   this.AngularFirestore.doc('price/' + id).update(data);
+  // }
+  
+
+  //  public editContact(contact: IContact): Observable<Array<IContact>>{
+  //    return this.http.put<Array<IContact>>(`${this.url}/${contact.id}`, contact);
+  //  } 
    
 }

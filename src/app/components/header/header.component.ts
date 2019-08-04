@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   siteTheme: any = false;
 
-  constructor(private ContactServiceIn: ContactService, private ThemeService: ThemeService) {
+  constructor(private ContactService: ContactService, private ThemeService: ThemeService) {
     
    }
 
@@ -26,14 +26,15 @@ export class HeaderComponent implements OnInit {
     this.getContact();
   }
 
-  getContact(): void {
-    this.ContactServiceIn.getContact().subscribe(
-      data => {
-        this.headerContact = data
-      },
-      err => {
-        console.log(err);
+  private getContact(): void{
+    this.ContactService.getContact().subscribe(actionArray => {
+      this.headerContact = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as IContact;
       })
+    });
   }
 
   toggleTheme(x):void{}

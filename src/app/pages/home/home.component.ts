@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   slider: Array<ISlide> = [];
   homeContact: Array<IContact> = [];
 
-  constructor(private SliderServiceIn: SliderService, private ContactServiceIn: ContactService) {
+  constructor(private SliderServiceIn: SliderService, private ContactService: ContactService) {
     this.getSlide();
     this.getContact();
    }
@@ -35,14 +35,14 @@ export class HomeComponent implements OnInit {
   }
 
   private getContact(): void{
-    this.ContactServiceIn.getContact().subscribe(
-      data =>{
-        this.homeContact = data;
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+    this.ContactService.getContact().subscribe(data =>{
+      this.homeContact = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as IContact;
+      })
+    })
   }
 
 }

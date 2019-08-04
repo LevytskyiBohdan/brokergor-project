@@ -10,22 +10,23 @@ import { ContactService } from 'src/app/shared/services/contact.service';
 export class ContactsComponent implements OnInit {
   contact: Array<IContact> = [];
 
-  constructor(private COntactServiceIn: ContactService) { 
-    this.getContact();
+  constructor(private ContactService: ContactService) { 
+    
   }
 
   ngOnInit() {
+    this.getContact();
   }
 
   private getContact(): void{
-    this.COntactServiceIn.getContact().subscribe(
-      data =>{
-        this.contact = data;
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+    this.ContactService.getContact().subscribe(actionArray => {
+      this.contact = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as IContact;
+      })
+    });
   }
 
 }

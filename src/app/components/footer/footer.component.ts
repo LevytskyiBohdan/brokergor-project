@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
 
   siteTheme: boolean = false;
 
-  constructor(private ContactServiceIn: ContactService, private ThemeService: ThemeService) { 
+  constructor(private ContactService: ContactService, private ThemeService: ThemeService) { 
     
   }
 
@@ -24,15 +24,15 @@ export class FooterComponent implements OnInit {
     this.getContact();
   }
 
-  getContact(): void{
-    this.ContactServiceIn.getContact().subscribe(
-      data =>{
-        this.footerContact = data;
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+  private getContact(): void{
+    this.ContactService.getContact().subscribe(actionArray => {
+      this.footerContact = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as IContact;
+      })
+    });
   }
 
 

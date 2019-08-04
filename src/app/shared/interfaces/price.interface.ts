@@ -1,5 +1,5 @@
 export interface IPrice {
-    id: number,
+    id: string,
     serviceDescription: string,
     priceDescription: number,
 }

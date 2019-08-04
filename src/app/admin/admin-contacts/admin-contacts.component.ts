@@ -12,44 +12,78 @@ export class AdminContactsComponent implements OnInit {
   adminContact: Array<IContact> = [];
 
   id: number;
-  tel: string;
+  phone: string;
   email: string;
 
-  constructor(private ContactServiceIn: ContactService) {
+  constructor(private ContactService: ContactService) {
     this.getContact();
    }
 
   ngOnInit() {
   }
 
+  // private getContact(): void{
+  //   this.ContactServiceIn.getContact().subscribe(
+  //     data => {
+  //       this.adminContact = data;
+  //       this.id = this.adminContact[0].id;
+  //       this.tel = this.adminContact[0].tel;
+  //       this.email = this.adminContact[0].email;
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+
   private getContact(): void{
-    this.ContactServiceIn.getContact().subscribe(
-      data => {
-        this.adminContact = data;
+    this.ContactService.getContact().subscribe(
+      data =>{
+        this.adminContact = data.map(item =>{
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as IContact;
+        });
         this.id = this.adminContact[0].id;
-        this.tel = this.adminContact[0].tel;
+        this.phone = this.adminContact[0].phone;
         this.email = this.adminContact[0].email;
-      },
-      err => {
-        console.log(err);
       }
     )
   }
 
   public isSaveEdit(): void{
-    const newContact: IContact = new NewContact(
-      0,
-      this.tel,
-      this.email,
-    );
-    this.tel = '';
-    this.email = '';
-    this.ContactServiceIn.editContact(newContact).subscribe(
-      ()=>{
-        this.getContact();
-      }
-    )
+    this.ContactService.editContact(this.id, this.phone, this.email);
   }
+  // private getContact(): void{
+  //   this.ContactService.getContact().subscribe(data =>{
+  //     this.homeContact = data.map(item => {
+  //       return {
+  //         id: item.payload.doc.id,
+  //         ...item.payload.doc.data()
+  //       } as IContact;
+  //     })
+  //   })
+  // }
+
+
+  // public isSaveEdit(): void{
+  //   const newContact: IContact = new NewContact(
+  //     0,
+  //     this.phone,
+  //     this.email,
+  //   );
+  //   this.phone = '';
+  //   this.email = '';
+  //   this.ContactService.editContact(newContact).subscribe(
+  //     ()=>{
+  //       this.getContact();
+  //     }
+  //   )
+  // }
+
+
+
 
 
 }
