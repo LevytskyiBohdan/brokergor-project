@@ -12,7 +12,7 @@ import { NewSlide } from 'src/app/shared/classes/new-slide';
   styleUrls: ['./admin-slider.component.css']
 })
 export class AdminSliderComponent implements OnInit {
-  adminSlide: Array<ISlide> = [];
+  // adminSlide: Array<ISlide> = [];
 
   id:number;
   firstTitle: string;
@@ -34,50 +34,61 @@ export class AdminSliderComponent implements OnInit {
   imageSM: string = null;
 
 
-  constructor(private afStorage: AngularFireStorage, private SlideServiceIn: SliderService) { }
+  constructor(private afStorage: AngularFireStorage, private SlideService: SliderService) { }
 
   ngOnInit() {
     this.getSlide();
   }
-
   private getSlide(): void{
-    this.SlideServiceIn.getSlide().subscribe(
-      data =>{
-        this.adminSlide = data;
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+    this.SlideService.getSlide();
   }
 
-  public isAddSlide():void{
-    const newSlide: ISlide = new NewSlide(
-      0,
-      this.firstTitle,
-      this.secondTitle,
-      this.image,
-      this.imageSM,
-    );
-    newSlide.id = this.adminSlide.slice(-1)[0].id + 1;
-
-    this.SlideServiceIn.addSlide(newSlide).subscribe(
-      ()=> {
-        this.getSlide();
-      });
-
-      this.firstTitle = '';
-      this.secondTitle = '';
+  private addSlide(form): void{
+    this.SlideService.addSlide(form, this.image, this.imageSM);
+  }
+  private deleteSlide(id: string): void{
+    this.SlideService.deleteSlide(id);
+    
   }
 
-  public isDeleteSlide(slide: ISlide): void {
-    const id = slide.id;
-    this.SlideServiceIn.deleteSlide(id).subscribe(
-      () => {
-        this.getSlide();
-      }
-    )
-  }
+  // private getSlide(): void{
+  //   this.SlideServiceIn.getSlide().subscribe(
+  //     data =>{
+  //       this.adminSlide = data;
+  //     },
+  //     err =>{
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+
+  // public isAddSlide():void{
+  //   const newSlide: ISlide = new NewSlide(
+  //     0,
+  //     this.firstTitle,
+  //     this.secondTitle,
+  //     this.image,
+  //     this.imageSM,
+  //   );
+  //   newSlide.id = this.adminSlide.slice(-1)[0].id + 1;
+
+  //   this.SlideServiceIn.addSlide(newSlide).subscribe(
+  //     ()=> {
+  //       this.getSlide();
+  //     });
+
+  //     this.firstTitle = '';
+  //     this.secondTitle = '';
+  // }
+
+  // public isDeleteSlide(slide: ISlide): void {
+  //   const id = slide.id;
+  //   this.SlideServiceIn.deleteSlide(id).subscribe(
+  //     () => {
+  //       this.getSlide();
+  //     }
+  //   )
+  // }
 
 
 

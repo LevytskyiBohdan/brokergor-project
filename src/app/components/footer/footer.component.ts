@@ -10,7 +10,7 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 })
 export class FooterComponent implements OnInit {
   footerContact: Array<IContact> = [];
-  id: number;
+  id: string;
   tel: string;
   email: string;
 

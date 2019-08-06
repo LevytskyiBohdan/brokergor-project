@@ -12,7 +12,7 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 export class HeaderComponent implements OnInit {
   headerContact: Array<IContact> = [];
 
-  id: number;
+  id: string;
   tel: string;
   email: string;
 

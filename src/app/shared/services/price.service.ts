@@ -27,7 +27,7 @@ export class PriceService {
     let data = Object.assign({}, form.value);
     delete data.id;
     this.AngularFirestore.collection('price').add(data);
-    this.getPrice;
+    this.getPrice();
   }
 
   public saveEdit(form, id){

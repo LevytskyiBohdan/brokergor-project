@@ -11,7 +11,7 @@ import { NewContact } from 'src/app/shared/classes/new-contact';
 export class AdminContactsComponent implements OnInit {
   adminContact: Array<IContact> = [];
 
-  id: number;
+  id: string;
   phone: string;
   email: string;
 

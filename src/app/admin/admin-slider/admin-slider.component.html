@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 pt-5">
-            <form class="border border-dark rounded p-3">
+            <form #form="ngForm" class="border border-dark rounded p-3">
                 <div class="form-group">
                     <label for="title1">Заголовок 1</label>
                     <input [(ngModel)]="firstTitle" name="firstTitle" type="text" class="form-control" id="title1"
@@ -57,17 +57,17 @@
                         <button type="button" class="btn btn-primary" (click)="task.resume()"
                             [disabled]="state === 'running'">Resume</button>
                     </div>
-                <button class="btn btn-success btn-block mt-3" (click)="isAddSlide()">Додати слайд</button>
+                <button class="btn btn-success btn-block mt-3" (click)="addSlide(form)">Додати слайд</button>
             </form>
         </div>
         <div class="col-12 pt-5 pb-5">
             <div class="border border-dark rounded p-3 d-flex flex-row justify-content-around">
-                <div class="card" style="width: 30%;" *ngFor="let item of adminSlide">
+                <div class="card" style="width: 30%;" *ngFor="let item of SlideService.data">
                     <img src="{{item.image}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{item.firstTitle}}</h5>
                         <p class="card-text">{{item.secondTitle}}</p>
-                        <button (click)="isDeleteSlide(item)" class="btn btn-danger btn-block">Видалити</button>
+                        <button (click)="deleteSlide(item.id)" class="btn btn-danger btn-block">Видалити</button>
                     </div>
                 </div>
             </div>

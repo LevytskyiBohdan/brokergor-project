@@ -3,6 +3,7 @@ import { SliderService } from 'src/app/shared/services/slider.service';
 import { ISlide } from 'src/app/shared/interfaces/slide.interface';
 import { ContactService } from 'src/app/shared/services/contact.service';
 import { IContact } from 'src/app/shared/interfaces/contact.interface';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -10,28 +11,18 @@ import { IContact } from 'src/app/shared/interfaces/contact.interface';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  slider: Array<ISlide> = [];
   homeContact: Array<IContact> = [];
 
-  constructor(private SliderServiceIn: SliderService, private ContactService: ContactService) {
-    this.getSlide();
+  constructor(private SliderService: SliderService, private ContactService: ContactService) {
     this.getContact();
+    this.getSlide();
    }
 
   ngOnInit() {
   }
-  
+
   private getSlide(): void{
-    this.SliderServiceIn.getSlide().subscribe(
-      data =>{
-        this.slider = data;
-        console.log(this.slider);
-        
-      },
-      err =>{
-        console.log(err);
-      }
-    )
+    this.SliderService.getSlide();
   }
 
   private getContact(): void{
@@ -44,5 +35,6 @@ export class HomeComponent implements OnInit {
       })
     })
   }
+  
 
 }
