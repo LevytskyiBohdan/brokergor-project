@@ -1,5 +1,5 @@
-<header class="container-fluid  position-sticky sticky-top" [ngClass]="{'bg-light': siteTheme, 'bg-dark': !siteTheme}">
-    <nav class="navbar navbar-expand-lg " [ngClass]="{'navbar-light bg-light': siteTheme,'bg-dark navbar-dark': !siteTheme}">
+<header class="container-fluid  position-sticky sticky-top" [ngClass]="{'bg-light': ThemeService.theme, 'bg-dark': !ThemeService.theme}">
+    <nav class="navbar navbar-expand-lg " [ngClass]="{'navbar-light bg-light': ThemeService.theme,'bg-dark navbar-dark': !ThemeService.theme}">
         <a class="navbar-brand link" routerLink="/home">
             <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
             roker
@@ -83,10 +83,10 @@
             </ul>
 
             <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
-                <label class="btn btn-secondary" (click)="toggleTheme(true)" [ngClass]="{'active': siteTheme}">
+                <label class="btn btn-secondary" (click)="themeToggle(true)" [ngClass]="{'active': ThemeService.theme}">
                     <input  type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
                 </label>
-                <label class="btn btn-secondary" (click)="toggleTheme(false)" [ngClass]="{'active': !siteTheme}">
+                <label class="btn btn-secondary" (click)="themeToggle(false)" [ngClass]="{'active': !ThemeService.theme}" >
                     <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
                 </label>
             </div>

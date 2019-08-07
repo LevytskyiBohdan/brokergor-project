@@ -6,7 +6,8 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+  providers: [ThemeService],
 })
 export class FooterComponent implements OnInit {
   footerContact: Array<IContact> = [];

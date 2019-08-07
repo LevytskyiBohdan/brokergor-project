@@ -11,13 +11,13 @@
 <section class="container-fluid">
     <div class="row" id="home">
         <div class="col-12 d-flex flex-row justify-content-center align-items-center pl-0 pr-0">
-            <div class="bd-example d-none d-md-block">
+            <div class="bd-example d-none d-sm-block">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleCaptions"
                         *ngFor="let item of SliderService.data" data-slide-to=""></li>
                     </ol>
-                    <div class="carousel-inner d-none d-md-block">
+                    <div class="carousel-inner d-none d-sm-block">
                         <div class="carousel-item" *ngFor="let item of SliderService.data; first as isFirst"
                             [ngClass]="{'active': isFirst}">
                             <img src="{{item.image}}" class="d-block w-100" alt="...">
@@ -46,14 +46,14 @@
             </div>
 
             <!-- mobile slider -->
-            <div class="bd-example d-block d-md-none">
+            <div class="bd-example d-block d-sm-none">
                 <div id="carouselExampleCaptionsM" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleCaptionsM"
                             *ngFor="let item1 of SliderService.data; let j=index; first as firstElem"
                             [ngClass]="{'active': firstElem}" data-slide-to=""></li>
                     </ol>
-                    <div class="carousel-inner d-block d-md-none">
+                    <div class="carousel-inner d-block d-sm-none">
                         <div class="carousel-item" *ngFor="let item of SliderService.data; first as isFirst"
                             [ngClass]="{'active': isFirst}">
                             <img src="{{item.imageSM}}" class="d-block w-100" alt="...">
@@ -93,7 +93,7 @@
                         class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <h5 class="card-title mt-3">ЕКСПОРТ</h5>
-                        <button class="btn btn-light card-text mt-3" routerLink="/export">Детальніше></button>
+                        <button class="btn btn-light card-text" routerLink="/export">Детальніше></button>
                     </div>
                 </div>
                 <div class="card bg-dark text-white mt-3 mt-sm-0">
@@ -101,7 +101,7 @@
                         class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <h5 class="card-title mt-3">ІМПОРТ</h5>
-                        <button class="btn btn-light card-text mt-3" routerLink="/import">Детальніше></button>
+                        <button class="btn btn-light card-text" routerLink="/import">Детальніше></button>
                     </div>
                 </div>
             </div>

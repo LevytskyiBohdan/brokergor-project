@@ -32,6 +32,9 @@ import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.co
 import { BusesComponent } from './pages/calculator/buses/buses.component';
 import { AdminSliderComponent } from './admin/admin-slider/admin-slider.component';
 import { PriceService } from './shared/services/price.service';
+import { BtnBackComponent } from './components/btn-back/btn-back.component';
+import { ThemeService } from './shared/services/theme.service';
+import { ContactService } from './shared/services/contact.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { PriceService } from './shared/services/price.service';
     CargoCarComponent,
     MotorcycleComponent,
     BusesComponent,
-    AdminSliderComponent
+    AdminSliderComponent,
+    BtnBackComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,7 @@ import { PriceService } from './shared/services/price.service';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [PriceService],
+  providers: [PriceService, ThemeService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

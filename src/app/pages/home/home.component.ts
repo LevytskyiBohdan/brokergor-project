@@ -3,8 +3,7 @@ import { SliderService } from 'src/app/shared/services/slider.service';
 import { ISlide } from 'src/app/shared/interfaces/slide.interface';
 import { ContactService } from 'src/app/shared/services/contact.service';
 import { IContact } from 'src/app/shared/interfaces/contact.interface';
-import { AngularFirestore } from '@angular/fire/firestore';
-
+import { ThemeService } from 'src/app/shared/services/theme.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,8 +17,7 @@ export class HomeComponent implements OnInit {
     this.getSlide();
    }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   private getSlide(): void{
     this.SliderService.getSlide();
@@ -36,5 +34,4 @@ export class HomeComponent implements OnInit {
     })
   }
   
-
 }

@@ -1,4 +1,4 @@
-<footer class="container-fluid" [ngClass]="{'bg-dark': !siteTheme, 'bg-light': siteTheme}">
+<footer class="container-fluid" [ngClass]="{'bg-dark': !ThemeService.theme, 'bg-light': ThemeService.theme}">
     <div class="row pt-3">
         <div class="col-12 col-sm-12 col-md-6 pt-2 pb-2 pl-2 pl-lg-5 pr-3 bd-callout bd-callout-info">
             <h5 class="text-light">Контакти</h5>
@@ -7,7 +7,7 @@
             <p *ngFor="let item of footerContact" class="text-light">Телефон: <a href="tel:{{item.phone}}">{{item.phone}}</a></p>
             <p class="text-light">Email: <a *ngFor="let item of footerContact" href="mailto: {{item.email}}">{{item.email}}</a></p>
         </div>
-        <div class="navbar col-12 col-sm-12 col-md-6" [ngClass]="{'navbar-dark': !siteTheme, 'navbar-light': siteTheme}">
+        <div class="navbar col-12 col-sm-12 col-md-6" [ngClass]="{'navbar-dark': !ThemeService.theme, 'navbar-light': ThemeService.theme}">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <ul class="navbar-nav mr-auto ">

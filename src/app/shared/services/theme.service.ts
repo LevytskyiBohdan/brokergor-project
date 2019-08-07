@@ -4,16 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ThemeService {
-  public a: any = false;
+  theme: boolean = false;
 
   constructor() { }
 
-  setTheme(x: boolean){
-    this.a = x;
-    console.log(this.a)
+  public themeToggle(x){
+    this.theme = x;
   }
 
-  getTheme(): any{
-    return this.a;
-  }
 }

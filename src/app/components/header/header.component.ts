@@ -37,5 +37,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  toggleTheme(x):void{}
+  themeToggle(x): void{   
+    this.ThemeService.themeToggle(x);
+  }
 }
