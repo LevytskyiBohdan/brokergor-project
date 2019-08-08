@@ -63,8 +63,6 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-success btn-block mt-4" (click)="culcPrice()">Розрахувати вартість</button>
-                <!-- <button class="btn btn-warning btn-block" (click)="f()">click</button>
-                <button class="btn btn-warning btn-block" (click)="f2()">close</button> -->
             </form>
         </div>
         <div class="col-12 col-lg-6 pt-5 pt-lg-3 border border-dark">          
@@ -133,7 +131,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-block" (click)="sendMessage(form)">Відправити</button>
+        <button type="button" class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" aria-hidden="true" (click)="sendMessage(form)" aria-hidden="true">Відправити</button>
       </div>
     </div>
   </div>

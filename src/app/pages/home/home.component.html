@@ -14,8 +14,8 @@
             <div class="bd-example d-none d-sm-block">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions"
-                        *ngFor="let item of SliderService.data" data-slide-to=""></li>
+                        <li data-target="#carouselExampleCaptions" *ngFor="let item of SliderService.data"
+                            data-slide-to=""></li>
                     </ol>
                     <div class="carousel-inner d-none d-sm-block">
                         <div class="carousel-item" *ngFor="let item of SliderService.data; first as isFirst"
@@ -24,7 +24,7 @@
                             <div class="carousel-caption d-block">
                                 <h5>{{item.firstTitle}}</h5>
                                 <p>{{item.secondTitle}}</p>
-                                <button class="btn btn-light mb-4" routerLink="/contacts">ОТРИМАТИ БЕЗКОШТОВНУ
+                                <button class="btn btn-light mb-4" (click)="message()">ОТРИМАТИ БЕЗКОШТОВНУ
                                     КОНСУЛЬТАЦІЮ</button><br>
                                 <button class="btn btn-light" routerLink="/calculator">РОЗРАХУВАТИ ВАРТІСТЬ РОЗМИТНЕННЯ
                                     АВТО</button>
@@ -103,6 +103,35 @@
                         <h5 class="card-title mt-3">ІМПОРТ</h5>
                         <button class="btn btn-light card-text" routerLink="/import">Детальніше></button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-12 s3 d-flex flex-row flex-wrap justify-content-around pb-5">
+            <p class="h1 d-block col-12 mt-5 text-white text-center">МИТНЕ ОФОРМЛЕННЯ</p>
+            <div class="card col-12 col-sm-5 col-xl-2 mt-5 p-3">
+                <div class="card-body text-white text-center p-0">
+                    <h5 class="card-title mb-4"><i class="fas fa-truck-moving"></i></h5>
+                    <h4 class="card-subtitle mb-2 text-muted" >АВТОТРАНСПОРТОМ</h4>
+                </div>
+            </div>
+            <div class="card col-12 col-sm-5 col-xl-2 mt-5 p-3">
+                <div class="card-body text-white text-center p-0">
+                    <h5 class="card-title mb-4"><i class="fas fa-ship"></i></h5>
+                    <h4 class="card-subtitle mb-2 text-muted">МОРСКИМ ТРАНСПОРТОМ</h4>
+                </div>
+            </div>
+            <div class="card col-12 col-sm-5 col-xl-2 mt-5 p-3">
+                <div class="card-body text-white text-center p-0">
+                    <h5 class="card-title mb-4" ><i class="fas fa-subway"></i></h5>
+                    <h4 class="card-subtitle mb-2 text-muted">ЗАЛІЗНИЧНИМ ТРАНСПОРТОМ</h4>
+                </div>
+            </div>
+            <div class="card col-12 col-sm-5 col-xl-2 mt-5 p-3">
+                <div class="card-body text-white text-center p-0">
+                    <h5 class="card-title mb-4"><i class="fas fa-plane"></i></h5>
+                    <h4 class="card-subtitle mb-2 text-muted">АВІАТРАНСПОРТОМ</h4>
                 </div>
             </div>
         </div>

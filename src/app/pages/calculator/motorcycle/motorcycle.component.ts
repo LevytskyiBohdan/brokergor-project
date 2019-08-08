@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class MotorcycleComponent implements OnInit {
   formCheckBodyType: boolean = true;
 
+  btnCall: boolean = false;
+
+  nameCli: string;
+  emailCli: string;
+  phoneCli: string;
+  messageCli: string;
 
   bodyType: string;
   country: number;
@@ -108,5 +114,28 @@ export class MotorcycleComponent implements OnInit {
       this.VAT = Math.floor((this.price + this.importDuty + this.exciseDuty) * 0.2);
       this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     }
+    this.btnCall = true;
   }
+
+
+  sendMessage(form):void{
+    // @ts-ignore
+    jivo_api.sendMessage({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+      "description": "Мотоцикли",
+      "message": `Ввізне мито - ${this.importDuty}, акцизне мито - ${this.exciseDuty}, ПДВ - ${this.VAT}, вартість авто з розмитненням - ${this.fullPrice}, вартість авто - ${this.price} об'єм моттору - ${this.engine}, країна походження - ${this.country}, повідомлення - ${form.value.messageCli}`
+    });
+    // @ts-ignore
+    jivo_api._sendIntroduce({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+    })
+    
+  }
+
+
+
 }

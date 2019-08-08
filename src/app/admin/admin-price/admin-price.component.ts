@@ -49,7 +49,7 @@ export class AdminPriceComponent implements OnInit {
     this.editID = form.id;
   }
 
-  public isSaveEditPrice(form:IPrice){
+  public isSaveEditPrice(form){
     this.priceService.saveEdit(form, this.editID);
     this.editStatus = false;
     this.priceDescription = null;

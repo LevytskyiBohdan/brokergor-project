@@ -34,7 +34,7 @@ export class AdminSliderComponent implements OnInit {
   imageSM: string = null;
 
 
-  constructor(private afStorage: AngularFireStorage, private SlideService: SliderService) { }
+  constructor(private afStorage: AngularFireStorage, public SlideService: SliderService) { }
 
   ngOnInit() {
     this.getSlide();
@@ -43,10 +43,10 @@ export class AdminSliderComponent implements OnInit {
     this.SlideService.getSlide();
   }
 
-  private addSlide(form): void{
+  addSlide(form): void{
     this.SlideService.addSlide(form, this.image, this.imageSM);
   }
-  private deleteSlide(id: string): void{
+  deleteSlide(id: string): void{
     this.SlideService.deleteSlide(id);
     
   }

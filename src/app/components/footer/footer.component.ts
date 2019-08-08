@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
 
   siteTheme: boolean = false;
 
-  constructor(private ContactService: ContactService, private ThemeService: ThemeService) { 
+  constructor(private ContactService: ContactService, public ThemeService: ThemeService) { 
     
   }
 
@@ -35,6 +35,12 @@ export class FooterComponent implements OnInit {
       })
     });
   }
+
+  message():void{
+    //@ts-ignore
+    jivo_api.open();
+  }
+
 
 
 }

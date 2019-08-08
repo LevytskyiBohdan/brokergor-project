@@ -12,7 +12,7 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 export class HomeComponent implements OnInit {
   homeContact: Array<IContact> = [];
 
-  constructor(private SliderService: SliderService, private ContactService: ContactService) {
+  constructor(public SliderService: SliderService, private ContactService: ContactService) {
     this.getContact();
     this.getSlide();
    }
@@ -34,4 +34,9 @@ export class HomeComponent implements OnInit {
     })
   }
   
+  message():void{
+    //@ts-ignore
+    jivo_api.open();
+  }
+
 }

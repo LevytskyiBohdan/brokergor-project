@@ -12,6 +12,12 @@ export class BusesComponent implements OnInit {
   price: number;
   engine: number;
 
+  btnCall: boolean = false;
+
+  nameCli: string;
+  emailCli: string;
+  phoneCli: string;
+  messageCli: string;
 
   importDuty: number;
   exciseDuty: number;
@@ -63,6 +69,29 @@ export class BusesComponent implements OnInit {
 
     this.VAT = Math.floor((this.price + this.importDuty + this.exciseDuty) * 0.2);
     this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
+    this.btnCall = true;
   }
+
+
+  sendMessage(form):void{
+    // @ts-ignore
+    jivo_api.sendMessage({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+      "description": "Автобуси",
+      "message": `Ввізне мито - ${this.importDuty}, акцизне мито - ${this.exciseDuty}, ПДВ - ${this.VAT}, вартість авто з розмитненням - ${this.fullPrice}, пальне - ${this.fuel}, вартість - ${this.price} об'єм моттору - ${this.engine}, вік авто - ${this.age}, країна походження - ${this.country}, повідомлення - ${form.value.messageCli}`
+    });
+    // @ts-ignore
+    jivo_api._sendIntroduce({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+    })
+    
+  }
+
+
+
 
 }

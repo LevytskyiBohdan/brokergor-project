@@ -22,6 +22,12 @@
     height: 60%;
 }
 
+.s3{
+    background: url("https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fmain%2Fbg-clearance.jpg?alt=media&token=14de148b-df7e-44c6-aa09-a92fd7c1cbc0");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* ------------------------------------------------- */
 @-webkit-keyframes bounce {
     from,
@@ -100,6 +106,7 @@
 
 
 /* @Media query */
+/* col */
 @media (max-width: 575.98px) {
     #home button {
         font-size: .8rem;
@@ -120,8 +127,21 @@
     .card h5{
         font-size: 2rem;
     }
+    .s3 .card{
+        background: transparent;
+        border: 5px solid rgba(255,255,255,.5)
+    }
+    .s3 .h1{
+        font-size: 2.1rem;
+    }
+    .s3 .card h5{
+        font-size: 4rem
+    }
+    .s3 .card h4{
+        font-size: 1.3rem
+    }
 }
-
+/* col-sm */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .carousel-item h5{
         font-size: 35px;
@@ -138,8 +158,22 @@
     .card h5{
         font-size: 2rem;
     }
-}
+    .s3 .card{
+        background: transparent;
+        border: 5px solid rgba(255,255,255,.5)
+    }
+    .s3 .h1{
+        font-size: 2.4rem;
+    }
+    .s3 .card h5{
+        font-size: 4rem
+    }
+    .s3 .card h4{
+        font-size: 1.1rem
+    }
 
+}
+/* col-md */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .carousel-item h5{
         font-size: 40px;
@@ -156,8 +190,21 @@
     .card h5{
         font-size: 2.25rem;
     }
+    .s3 .card{
+        background: transparent;
+        border: 5px solid rgba(255,255,255,.5)
+    }
+    .s3 .h1{
+        font-size: 2.5rem;
+    }
+    .s3 .card h5{
+        font-size: 4rem
+    }
+    .s3 .card h4{
+        font-size: 1.4rem
+    }
 }
-
+/* col-lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .carousel-item h5{
         font-size: 50px;
@@ -174,8 +221,21 @@
     .card h5{
         font-size: 2.25rem;
     }
+    .s3 .card{
+        background: transparent;
+        border: 5px solid rgba(255,255,255,.5)
+    }
+    .s3 .h1{
+        font-size: 2.5rem;
+    }
+    .s3 .card h5{
+        font-size: 4.7rem
+    }
+    .s3 .card h4{
+        font-size: 1.6rem
+    }
 }
-
+/* col-xl */
 @media (min-width: 1200px) {
     .carousel-item h5{
         font-size: 70px;
@@ -191,5 +251,18 @@
     }
     .card h5{
         font-size: 2.25rem;
+    }
+    .s3 .card{
+        background: transparent;
+        border: 5px solid rgba(255,255,255,.5)
+    }
+    .s3 .h5{
+        font-size: 2.8rem;
+    }
+    .s3 .card h5{
+        font-size: 4.7rem
+    }
+    .s3 .card h4{
+        font-size: 1rem
     }
 }

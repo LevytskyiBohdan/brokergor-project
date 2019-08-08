@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   siteTheme: any = false;
 
-  constructor(private ContactService: ContactService, private ThemeService: ThemeService) {
+  constructor(private ContactService: ContactService, public ThemeService: ThemeService) {
     
    }
 

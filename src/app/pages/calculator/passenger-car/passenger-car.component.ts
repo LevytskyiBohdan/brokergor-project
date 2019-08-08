@@ -11,6 +11,11 @@ export class PassengerCarComponent implements OnInit {
 
   btnCall: boolean = false;
 
+  nameCli: string;
+  emailCli: string;
+  phoneCli: string;
+  messageCli: string;
+
   fuel: string;
   country: number;
   age: number;
@@ -48,64 +53,46 @@ export class PassengerCarComponent implements OnInit {
 
   public culcPrice(): void {
     if (this.fuel == "fuel") {
-      this.importDuty = this.price * this.country;
-      this.exciseDuty = (this.age * this.engine * 0.5) * 0.1;
-      this.VAT = ((this.price * this.country) + ((this.age * this.engine * 0.5) * 0.1) + this.price) * 0.2;
-      this.fullPrice = this.importDuty + this.exciseDuty + this.VAT + this.price;
+      this.importDuty = Math.floor(this.price * this.country);
+      this.exciseDuty = Math.floor((this.age * this.engine * 0.5) * 0.1);
+      this.VAT = Math.floor(((this.price * this.country) + ((this.age * this.engine * 0.5) * 0.1) + this.price) * 0.2);
+      this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     } else if (this.fuel == "fuelDisel") {
-      this.importDuty = this.price * this.country;
-      this.exciseDuty = (this.age * this.engine * 0.75) * 0.1;
-      this.VAT = ((this.price * this.country) + ((this.age * this.engine * 0.75) * 0.1) + this.price) * 0.2;
-      this.fullPrice = this.importDuty + this.exciseDuty + this.VAT + this.price;
+      this.importDuty = Math.floor(this.price * this.country);
+      this.exciseDuty = Math.floor((this.age * this.engine * 0.75) * 0.1);
+      this.VAT = Math.floor(((this.price * this.country) + ((this.age * this.engine * 0.75) * 0.1) + this.price) * 0.2);
+      this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     } else if (this.fuel == "electric") {
       this.importDuty = 0;
       this.exciseDuty = this.batery;
       this.VAT = 0;
-      this.fullPrice = this.importDuty + this.exciseDuty + this.VAT + this.price;
+      this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     } else {
-      this.importDuty = this.price * 0.1;
+      this.importDuty = Math.floor(this.price * 0.1);
       this.exciseDuty = 100;
-      this.VAT = (this.importDuty + this.exciseDuty + this.price) * 0.2;
-      this.fullPrice = this.importDuty + this.exciseDuty + this.VAT + this.price;
+      this.VAT = Math.floor((this.importDuty + this.exciseDuty + this.price) * 0.2);
+      this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     }
     this.btnCall = true;
   }
 
   sendMessage(form):void{
-    console.log(form.value);
+    // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
-      "description": "Description text",
-      "message": `Ввізне мито - ${this.importDuty}, акцизне мито - ${this.exciseDuty}, ПДВ - ${this.VAT}, вартість авто з розмитненням - ${this.fullPrice}, об'єм моттору - ${this.engine}, вік авто - ${this.age}, країна походження - ${this.country}, повідомлення - ${form.value.messageCli}`
-    }); 
+      "description": "Легкове авто",
+      "message": `Ввізне мито - ${this.importDuty}, акцизне мито - ${this.exciseDuty}, ПДВ - ${this.VAT}, вартість авто з розмитненням - ${this.fullPrice}, вартість - ${this.price} об'єм моттору - ${this.engine}, вік авто - ${this.age}, країна походження - ${this.country}, повідомлення - ${form.value.messageCli}`
+    });
+    // @ts-ignore
+    jivo_api._sendIntroduce({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+    })
     
   }
-
-
-
-  // f(){
-
-  //   jivo_api.sendMessage({
-  //         "name": "John Smith",
-  //         "email": "email@example.com",
-  //         "phone": "+14084987855",
-  //         "description": "Description text",
-  //         "message": `Ввізне мито - ${this.importDuty}
-  //                     Акцизне мито - ${this.exciseDuty}
-  //                     ПДВ - ${this.VAT}
-  //                     Вартість авто з розмитненням - ${this.fullPrice}
-  //                     Об'єм моттору - ${this.engine}
-  //                     Вік авто - ${this.age}
-  //                     Країна походження - ${this.country}`
-  //      }); 
-  //   jivo_api.open();
-  //   }
-
-  // f2(){
-  //   jivo_api.close();
-  //   }
 
 }
 

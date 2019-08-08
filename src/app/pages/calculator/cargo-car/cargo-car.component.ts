@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class CargoCarComponent implements OnInit {
   formCheckCarBody: boolean = true;
 
+  btnCall: boolean = false;
+
+  nameCli: string;
+  emailCli: string;
+  phoneCli: string;
+  messageCli: string;
 
   bodyType: string;
   fuel: string;
@@ -90,6 +96,26 @@ export class CargoCarComponent implements OnInit {
       this.VAT = Math.floor((this.price + this.importDuty + this.exciseDuty) * 0.2);
       this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     }
+    this.btnCall = true;
   }
+
+  sendMessage(form):void{
+    // @ts-ignore
+    jivo_api.sendMessage({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+      "description": "Вантажівки",
+      "message": `Ввізне мито - ${this.importDuty}, акцизне мито - ${this.exciseDuty}, ПДВ - ${this.VAT}, вартість авто з розмитненням - ${this.fullPrice}, тип кузова - ${this.bodyType}, пальне - ${this.fuel},  вартість - ${this.price} об'єм моттору - ${this.engine}, вік авто - ${this.age}, країна походження - ${this.country}, повна маса - ${this.weight}, повідомлення - ${form.value.messageCli}`
+    });
+    // @ts-ignore
+    jivo_api._sendIntroduce({
+      "name": form.value.nameCli,
+      "email": form.value.emailCli,
+      "phone": form.value.phoneCli,
+    })
+  }
+
+
 
 }
