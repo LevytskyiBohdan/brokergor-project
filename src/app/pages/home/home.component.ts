@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SliderService } from 'src/app/shared/services/slider.service';
-import { ISlide } from 'src/app/shared/interfaces/slide.interface';
 import { ContactService } from 'src/app/shared/services/contact.service';
 import { IContact } from 'src/app/shared/interfaces/contact.interface';
-import { ThemeService } from 'src/app/shared/services/theme.service';
+import { PageScrollService } from 'ngx-page-scroll-core';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +12,7 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 export class HomeComponent implements OnInit {
   homeContact: Array<IContact> = [];
 
-  constructor(public SliderService: SliderService, private ContactService: ContactService) {
+  constructor(public SliderService: SliderService, private ContactService: ContactService, private PageScrollService: PageScrollService, @Inject(DOCUMENT) private document:any) {
     this.getContact();
     this.getSlide();
    }
@@ -37,6 +37,14 @@ export class HomeComponent implements OnInit {
   message():void{
     //@ts-ignore
     jivo_api.open();
+  }
+
+  scrollTo():void{
+    
+    this.PageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '.scrollTo'
+    })
   }
 
 }

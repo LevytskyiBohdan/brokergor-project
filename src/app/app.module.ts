@@ -9,6 +9,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
+// Scroll to mode
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -65,6 +68,7 @@ import { ContactService } from './shared/services/contact.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 30}),
     AngularFireModule.initializeApp(environment.firebase, 'brokergor'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
