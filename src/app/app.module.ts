@@ -71,7 +71,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 45}),
+    NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 20}),
     AngularFireModule.initializeApp(environment.firebase, 'brokergor'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
