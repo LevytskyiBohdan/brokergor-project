@@ -1,4 +1,4 @@
-<header id="header" class="container-fluid" [ngClass]="{'bg-light': ThemeService.theme, 'bg-dark': !ThemeService.theme}">
+<header id="header" class="container-fluid position-fixed" [ngClass]="{'bg-light': ThemeService.theme, 'bg-dark': !ThemeService.theme}">
     <nav class="navbar navbar-expand-lg " [ngClass]="{'navbar-light bg-light': ThemeService.theme,'bg-dark navbar-dark': !ThemeService.theme}">
         <a class="navbar-brand link" routerLink="/home">
             <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
@@ -99,3 +99,5 @@
 
     </nav>
 </header>
+
+<div class="repair"></div>

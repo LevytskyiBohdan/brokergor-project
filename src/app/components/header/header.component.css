@@ -1,11 +1,45 @@
 header {
     z-index: 100!important;
+    top: 0;
+    left: 0;
 }
-header#header {
+/* header#header {
     position: -webkit-sticky;
     position: -moz-sticky;
     position: -ms-sticky;
     position: -o-sticky;
     position: sticky;
     top: 0;
+} */
+
+/* @Media query */
+/* col */
+@media (max-width: 575.98px) {
+    .repair{
+        height: 58px;
+    }
+}
+/* col-sm */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .repair{
+        height: 58px;
+    }
+}
+/* col-md */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .repair{
+        height: 58px;
+    }
+}
+/* col-lg */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .repair{
+        height: 80px;
+    }
+}
+/* col-xl */
+@media (min-width: 1200px) {
+    .repair{
+        height: 80px;
+    }
 }

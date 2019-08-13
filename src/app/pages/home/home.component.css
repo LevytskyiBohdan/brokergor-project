@@ -29,6 +29,14 @@
 }
 
 /* ------------------------------------------------- */
+
+.bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    /* -webkit-transform-origin: center bottom;
+    transform-origin: center bottom; */
+  }
+
 @-webkit-keyframes bounce {
     from,
     20%,
@@ -95,12 +103,6 @@
     }
   }
   
-  .bounce {
-    -webkit-animation-name: bounce;
-    animation-name: bounce;
-    -webkit-transform-origin: center bottom;
-    transform-origin: center bottom;
-  }
 /* ----------------------------------------------------------------- */
 
 
@@ -140,6 +142,9 @@
     .s3 .card h4{
         font-size: 1.3rem
     }
+    img.w-100{
+        height: calc(100vh - 58px)!important;
+    }
 }
 /* col-sm */
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -170,6 +175,9 @@
     }
     .s3 .card h4{
         font-size: 1.1rem
+    }
+    img.w-100{
+        height: calc(100vh - 58px)!important;
     }
 
 }
@@ -203,6 +211,9 @@
     .s3 .card h4{
         font-size: 1.4rem
     }
+    img.w-100{
+        height: calc(100vh - 58px)!important;
+    }
 }
 /* col-lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -234,14 +245,17 @@
     .s3 .card h4{
         font-size: 1.6rem
     }
+    img.w-100{
+        height: calc(100vh - 80px)!important;
+    }
 }
 /* col-xl */
 @media (min-width: 1200px) {
     .carousel-item h5{
-        font-size: 70px;
+        font-size: 60px;
     }
     .carousel-item p{
-        font-size: 80px;
+        font-size: 70px;
     }
     .carousel-caption{
         top: 5%;
@@ -264,5 +278,8 @@
     }
     .s3 .card h4{
         font-size: 1rem
+    }
+    img.w-100{
+        height: calc(100vh - 80px)!important;
     }
 }
