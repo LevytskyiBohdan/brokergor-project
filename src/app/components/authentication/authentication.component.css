@@ -1,0 +1,46 @@
+/* @Media query */
+/* col */
+@media (max-width: 575.98px) {
+    .row{
+        height: calc(100vh - 58px);
+    }
+    form{
+        width: 100%;
+    }
+}
+/* col-sm */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .row{
+        height: calc(100vh - 58px);
+    }
+    form{
+        width: 100%;
+    }
+}
+/* col-md */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .row{
+        height: calc(100vh - 58px);
+    }
+    form{
+        width: 75%;
+    }
+}
+/* col-lg */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .row{
+        height: calc(100vh - 80px);
+    }
+    form{
+        width: 50%;
+    }
+}
+/* col-xl */
+@media (min-width: 1200px) {
+    .row{
+        height: calc(100vh - 80px);
+    }
+    form{
+        width: 50%;
+    }
+}

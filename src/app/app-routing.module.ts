@@ -17,7 +17,11 @@ import { MotorcycleComponent } from './pages/calculator/motorcycle/motorcycle.co
 import { CargoCarComponent } from './pages/calculator/cargo-car/cargo-car.component';
 import { BusesComponent } from './pages/calculator/buses/buses.component';
 import { AdminSliderComponent } from './admin/admin-slider/admin-slider.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
+// Guard
+import { AdminGuard } from './shared/guard/admin.guard';
+import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,12 +33,13 @@ const routes: Routes = [
   {path: 'export', component: ExportComponent},
   {path: 'import', component: ImportComponent},
   {path: 'eur1', component: Eur1Component},
+  {path: 'authentication', component: AuthenticationComponent, canActivate: [SecureInnerPagesGuard]},
   {path: 'admin', component: AdminComponent, children: [
     {path: '', redirectTo: 'price', pathMatch: 'full'},
     {path: 'price', component: AdminPriceComponent},
     {path: 'contacts', component: AdminContactsComponent},
     {path: 'sliderAdmin', component: AdminSliderComponent},
-  ]},
+  ], canActivate: [AdminGuard]},
   {path: 'calculator', component: CalculatorComponent, children:[
     {path: '', redirectTo: 'passenger-car', pathMatch: 'full'},
     {path: 'passenger-car', component: PassengerCarComponent},

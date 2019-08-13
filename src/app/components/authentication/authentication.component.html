@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+            <form #form="ngForm">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" [(ngModel)]="password" name="password" id="password" placeholder="Password">
+                </div>
+                <button type="button" class="btn btn-primary btn-block" (click)="logIn(form)">Log in</button>
+              </form>
+        </div>
+    </div>
+</div>

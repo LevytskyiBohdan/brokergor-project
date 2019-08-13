@@ -38,6 +38,8 @@ import { PriceService } from './shared/services/price.service';
 import { BtnBackComponent } from './components/btn-back/btn-back.component';
 import { ThemeService } from './shared/services/theme.service';
 import { ContactService } from './shared/services/contact.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { ContactService } from './shared/services/contact.service';
     MotorcycleComponent,
     BusesComponent,
     AdminSliderComponent,
-    BtnBackComponent
+    BtnBackComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,7 @@ import { ContactService } from './shared/services/contact.service';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [PriceService, ThemeService, ContactService],
+  providers: [PriceService, ThemeService, ContactService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
