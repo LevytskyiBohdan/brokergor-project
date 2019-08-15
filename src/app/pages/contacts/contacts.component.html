@@ -6,7 +6,7 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10303.245847308439!2d23.69728532231484!3d49.789610362632736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473b1db60c30a857%3A0x2cefe1d8099accb9!2z0JzQuNGC0L3QuNC5INC_0L7RgdGCIMKr0JPQvtGA0L7QtNC-0LrCuw!5e0!3m2!1sru!2sua!4v1558466826292!5m2!1sru!2sua"
-                 frameborder="0" style="border:0; height: 100%; width: 100%" allowfullscreen></iframe>
+                frameborder="0" style="border:0; height: 100%; width: 100%" allowfullscreen></iframe>
         </div>
         <address class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3 mt-sm-3 mt-md-0 mt-lg-0 mt-xl-0">
             <h6>Контактна інформація компанії з питань ЗЕД</h6>
@@ -15,5 +15,37 @@
             <p>Телефон: <a *ngFor="let item of contact" href="tel:{{item.phone}}">{{item.phone}}</a></p>
             <p>Email: <a *ngFor="let item of contact" href="mailto:{{item.email}}">{{item.email}}</a></p>
         </address>
+        <!-- form begin -->
+        <form #form="ngForm" class="pt-3 pb-3 col-12 col-md-10 ml-auto mr-auto mt-3">
+            <div class="form-group">
+                <p class="h4">Зв'яжіться з нами:</p>
+            </div>
+            <div class="form-group">
+                <label for="name">Введіть ім'я</label>
+                <input [(ngModel)]="name" name="name" [ngClass]="{'is-invalid': className}" type="text" class="form-control" id="name"
+                    aria-describedby="emailHelp" placeholder="ім'я..">
+                <small *ngIf="className" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Введіть email</label>
+                <input [(ngModel)]="email" name="email" [ngClass]="{'is-invalid': classEmail}" type="email" class="form-control" id="email"
+                    aria-describedby="emailHelp" placeholder="пошта..">
+                    <small *ngIf="classEmail" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Введіть номер телефону</label>
+                <input [(ngModel)]="phone" name="phone" [ngClass]="{'is-invalid': classPhone}" type="text" class="form-control" id="phone"
+                    aria-describedby="emailHelp" placeholder="телефон..">
+                    <small *ngIf="classPhone" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+            </div>
+            <div class="form-group">
+                <label for="textarea">Введіть ваше запитання</label>
+                <textarea [(ngModel)]="message" name="message" [ngClass]="{'is-invalid': classMessage}" class="form-control" id="textarea" rows="3"></textarea>
+                <small *ngIf="classMessage" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+            </div>
+            <button type="button" class="btn btn-success btn-block" (click)="sendMessage(form)">Надіслати
+                повідомлення</button>
+        </form>
+        <!-- form end -->
     </div>
 </section>
