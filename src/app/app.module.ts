@@ -15,6 +15,11 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 // NGXuiLoader
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from  'ngx-ui-loader';
 
+// ngx-toastr
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -81,7 +86,9 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     AngularFireModule.initializeApp(environment.firebase, 'brokergor'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [PriceService, ThemeService, ContactService, AuthenticationService],
   bootstrap: [AppComponent]

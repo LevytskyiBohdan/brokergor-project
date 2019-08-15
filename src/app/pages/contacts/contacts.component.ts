@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IContact } from 'src/app/shared/interfaces/contact.interface';
 import { ContactService } from 'src/app/shared/services/contact.service';
 import { RegexService } from 'src/app/shared/services/regex.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contacts',
@@ -21,10 +22,11 @@ export class ContactsComponent implements OnInit {
   classPhone: boolean = false;
   classMessage: boolean = false;
 
-  constructor(private ContactService: ContactService, private RegexService: RegexService) { }
+  constructor(private ContactService: ContactService, private RegexService: RegexService, private ToastrService: ToastrService) { }
 
   ngOnInit() {
     this.getContact();
+    
   }
 
   private getContact(): void{
@@ -39,7 +41,7 @@ export class ContactsComponent implements OnInit {
   }
 
   sendMessage(form): void {
-    console.log(form.value);
+    // console.log(form.value);
     let checkName: boolean = false;
     let checkEmail: boolean = false;
     let checkPhone: boolean = false;
@@ -89,7 +91,16 @@ export class ContactsComponent implements OnInit {
           "phone": form.value.phone,
         })
         form.reset();
+        this.ToastrService.success('Наш представник невдовзі зв\'яжеться з вами', 'Повідомлення надіслано', {
+          timeOut: 6000,
+        })
+    } else {
+      this.ToastrService.error('Заповніть форму', 'Помилка', {
+        timeOut: 3000,
+      });
     }
+
+    
   }
 
 }
