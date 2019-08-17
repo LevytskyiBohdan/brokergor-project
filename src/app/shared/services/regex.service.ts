@@ -16,8 +16,11 @@ export class RegexService {
     return regex.test(String(phone));
   }
   validateName(name: string): boolean {
-    let regex = /^[a-zA-Z ]+$/;
+    let regex = /^[a-zA-Zа-яА-Я]+$/;
     return regex.test(String(name));
   }
-
+  validateNumber(number): boolean {
+    let regex = /^[0-9]+$/;
+    return regex.test(number);
+  }
 }

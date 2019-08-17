@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegexService } from 'src/app/shared/services/regex.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-motorcycle',
@@ -17,10 +19,18 @@ export class MotorcycleComponent implements OnInit {
 
   bodyType: string;
   country: number;
-  age: number;
   price: number;
   engine: number;
-  batery: number;
+
+  bodyTypeErr: boolean = false;
+  countryErr: boolean = false;
+  priceErr: boolean = false;
+  engineErr: boolean = false;
+
+  bodyTypeOk: boolean = false;
+  countryOk: boolean = false;
+  priceOk: boolean = false;
+  engineOk: boolean = false;
 
   importDuty: number;
   exciseDuty: number;
@@ -28,7 +38,7 @@ export class MotorcycleComponent implements OnInit {
   fullPrice: number;
 
 
-  constructor() { }
+  constructor(private RegexService: RegexService, private ToastrService: ToastrService) { }
 
   ngOnInit() {
   }
@@ -41,8 +51,9 @@ export class MotorcycleComponent implements OnInit {
     }
   }
 
-
-  public culcPrice(): void {
+  public culculator(): void {
+    this.price = Number(this.price);
+    this.engine = Number(this.engine);
     if (this.bodyType == "motorcycle") {
         // Мито
       if (this.engine >= 51 && this.engine <= 125 && this.country == 1) {
@@ -116,6 +127,77 @@ export class MotorcycleComponent implements OnInit {
     }
     this.btnCall = true;
   }
+
+  validateBodyType(): void {
+    if(this.bodyType != undefined){
+      this.bodyTypeErr = false;
+      this.bodyTypeOk = true;
+    } else {
+      this.bodyTypeErr = true;
+      this.bodyTypeOk = false;
+    }
+  }
+  validateCountry(): void {
+    if(this.country != undefined){
+      this.countryErr = false;
+      this.countryOk = true;
+    } else {
+      this.countryErr = true;
+      this.countryOk = false;
+    }
+  }
+  validatePrice(): void {
+    if (this.RegexService.validateNumber(this.price)){
+      this.priceErr = false;
+      this.priceOk = true;
+    } else {
+      this.priceErr = true;
+      this.priceOk = false;
+    }
+  }
+  validateEngine(): void {
+    if (this.RegexService.validateNumber(this.engine)){
+      this.engineErr = false;
+      this.engineOk = true;
+    } else {
+      this.engineErr = true;
+      this.engineOk = false;
+    }
+  }
+
+  public culcPrice(): void {
+    if(this.bodyType != undefined){
+      this.bodyTypeErr = false;
+    } else {
+      this.bodyTypeErr = true;
+    }
+    if(this.country != undefined){
+      this.countryErr = false;
+    } else {
+      this.countryErr = true;
+    }
+    if (this.RegexService.validateNumber(this.price)){
+      this.priceErr = false;
+    } else {
+      this.priceErr = true;
+    }
+    if (this.RegexService.validateNumber(this.engine)){
+      this.engineErr = false;
+    } else {
+      this.engineErr = true;
+    }
+    if((this.bodyType == 'motorcycle'||this.bodyType == 'scooter'||this.bodyType == 'moped') && !this.countryErr && !this.priceErr && !this.engineErr){
+      this.culculator();
+    } else if((this.bodyType == 'electricBike' || this.bodyType == 'electricMotorcycle') && !this.countryErr && !this.priceErr){
+      this.culculator();
+    } else {
+      this.ToastrService.error('Заповніть форму', 'Помилка', {
+        timeOut: 4000,
+      })
+    }
+  }
+
+  
 
 
   sendMessage(form):void{
