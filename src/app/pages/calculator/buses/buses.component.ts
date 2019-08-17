@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegexService } from 'src/app/shared/services/regex.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-buses',
@@ -12,6 +14,18 @@ export class BusesComponent implements OnInit {
   price: number;
   engine: number;
 
+  fuelErr: boolean;
+  countryErr: boolean;
+  ageErr: boolean;
+  priceErr: boolean;
+  engineErr: boolean;
+
+  fuelOk: boolean;
+  countryOk: boolean;
+  ageOk: boolean;
+  priceOk: boolean;
+  engineOk: boolean;
+
   btnCall: boolean = false;
 
   nameCli: string;
@@ -24,22 +38,24 @@ export class BusesComponent implements OnInit {
   VAT: number;
   fullPrice: number;
 
-  constructor() { }
+  constructor(private RegexService: RegexService, private ToastrService: ToastrService) { }
 
   ngOnInit() {
   }
 
-  public culcPrice(): void {
+  calculator(): void {
+    this.price = Number(this.price);
+    this.engine = Number(this.engine);
     if (this.country == 1) {
       this.importDuty = Math.floor(this.price * 0.1);
       if (this.age == 1) { this.exciseDuty = Math.floor(this.engine * 0.007); }
       if (this.age == 2) { this.exciseDuty = Math.floor(this.engine * 0.35); }
-    } 
+    }
     else if (this.country == 2) {
       this.importDuty = 0;
       if (this.age == 1) { this.exciseDuty = Math.floor(this.engine * 0.007); }
       if (this.age == 2) { this.exciseDuty = Math.floor(this.engine * 0.35); }
-    } 
+    }
     else if (this.country == 3) {
       if (this.fuel == 'fuel') {
         this.importDuty = Math.floor(this.price * 0.1);
@@ -52,7 +68,7 @@ export class BusesComponent implements OnInit {
       }
       if (this.age == 1) { this.exciseDuty = Math.floor(this.engine * 0.007); }
       if (this.age == 2) { this.exciseDuty = Math.floor(this.engine * 0.35); }
-    } 
+    }
     else if (this.country == 4) {
       if (this.fuel == 'fuel') {
         this.importDuty = Math.floor(this.price * 0.075);
@@ -72,8 +88,92 @@ export class BusesComponent implements OnInit {
     this.btnCall = true;
   }
 
+  validateFuel(): void {
+    if (this.fuel != undefined) {
+      this.fuelErr = false;
+      this.fuelOk = true;
+    } else {
+      this.fuelErr = true;
+      this.fuelOk = false;
+    }
+  }
+  validateCountry(): void {
+    if (this.country != undefined) {
+      this.countryErr = false;
+      this.countryOk = true;
+    } else {
+      this.countryErr = true;
+      this.countryOk = false;
+    }
+  }
+  validateAge(): void {
+    if (this.age != undefined) {
+      this.ageErr = false;
+      this.ageOk = true;
+    } else {
+      this.ageErr = true;
+      this.ageOk = false;
+    }
+  }
+  validatePrice(): void {
+    if (this.RegexService.validateNumber(this.price)){
+      this.priceErr = false;
+      this.priceOk = true;
+    } else {
+      this.priceErr = true;
+      this.priceOk = false;
+    }
+  }
+  validateEngine(): void {
+    if (this.RegexService.validateNumber(this.engine)){
+      this.engineErr = false;
+      this.engineOk = true;
+    } else {
+      this.engineErr = true;
+      this.engineOk = false;
+    }
+  }
+  public culcPrice(): void {
+    //   fuel: string;
+    // country: number;
+    // age: number;
+    // price: number;
+    // engine: number;
+    if (this.fuel != undefined) {
+      this.fuelErr = false;
+    } else {
+      this.fuelErr = true;
+    }
+    if (this.country != undefined) {
+      this.countryErr = false;
+    } else {
+      this.countryErr = true;
+    }
+    if (this.age != undefined) {
+      this.ageErr = false;
+    } else {
+      this.ageErr = true;
+    }
+    if (this.RegexService.validateNumber(this.price)){
+      this.priceErr = false;
+    } else {
+      this.priceErr = true;
+    }
+    if (this.RegexService.validateNumber(this.engine)){
+      this.engineErr = false;
+    } else {
+      this.engineErr = true;
+    }
+    if (!this.fuelErr && !this.countryErr && !this.ageErr && !this.priceErr && !this.engineErr){
+      this.calculator();
+    } else {
+      this.ToastrService.error('Заповніть форму', 'Помилка', {
+        timeOut: 4000,
+      })
+    }
+  }
 
-  sendMessage(form):void{
+  sendMessage(form): void {
     // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
@@ -88,7 +188,7 @@ export class BusesComponent implements OnInit {
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
     })
-    
+
   }
 
 

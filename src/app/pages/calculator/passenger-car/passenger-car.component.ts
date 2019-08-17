@@ -47,10 +47,7 @@ export class PassengerCarComponent implements OnInit {
 
   constructor(private ToastrService: ToastrService, private RegexService: RegexService) { }
 
-  ngOnInit() {
-    console.log(this.fuel);
-
-  }
+  ngOnInit() { }
 
   public fuelChenge(): void {
     if (this.fuel == "fuel" || this.fuel == "fuelDisel") {

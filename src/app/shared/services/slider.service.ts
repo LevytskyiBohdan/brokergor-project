@@ -28,7 +28,7 @@ export class SliderService {
   addSlide(form, image, imageSM): void{
     let data = Object.assign({}, form.value, {image}, {imageSM});
     delete data.id;
-    // console.log(data);
+    console.log(data);
     
     this.AngularFirestore.collection('slider').add(data);
   }

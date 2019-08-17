@@ -64,7 +64,7 @@
         <div class="form-group" *ngIf="formCheckCarElectro">
           <label for="batery">Ємність АКБ</label>
           <div class="form-inline">
-            <input (change)="validateBatery()" [(ngModel)]="batery" name="batery" type="text" class="form-control col-9 col-md-10" id="batery" [ngClass]="{'is-invalid': bateryErr, 'is-valid': beteryOk}">
+            <input (change)="validateBatery()" [(ngModel)]="batery" name="batery" type="text" class="form-control col-9 col-md-10" id="batery" [ngClass]="{'is-invalid': bateryErr, 'is-valid': bateryOk}">
             <span class="pl-2 pl-sm-4">кВт<sup>.</sup>г</span>
           </div>
           <small class="form-text text-dunger" *ngIf="bateryErr">Вкажіть ємність акумуляторної батареї авто</small>

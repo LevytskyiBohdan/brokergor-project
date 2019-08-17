@@ -4,14 +4,14 @@
       <form class="pt-3 pb-3">
         <div class="form-group">
           <label for="fuel">Пальне</label>
-          <select class="form-control" id="fuel" [(ngModel)]="fuel" name="fuel">
+          <select class="form-control" id="fuel" (change)="validateFuel()" [ngClass]="{'is-invalid': fuelErr, 'is-valid': fuelOk}" [(ngModel)]="fuel" name="fuel">
             <option [ngValue]="'fuel'">бензин</option>
             <option [ngValue]="'fuelDisel'">дизель</option>
           </select>
         </div>
         <div class="form-group">
           <label for="country">Країна похождення</label>
-          <select class="form-control" id="country" [(ngModel)]="country" name="country">
+          <select class="form-control" id="country" (change)="validateCountry()" [ngClass]="{'is-invalid': countryErr, 'is-valid': countryOk}" [(ngModel)]="country" name="country">
             <option [ngValue]="'1'" selected>інші</option>
             <option [ngValue]="'2'">ЄАВТ</option>
             <option [ngValue]="'3'">ЄС</option>
@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <label for="age">Вік авто</label>
-          <select class="form-control" id="age" [(ngModel)]="age" name="age">
+          <select class="form-control" id="age" (change)="validateAge()" [ngClass]="{'is-invalid': ageErr, 'is-valid': ageOk}" [(ngModel)]="age" name="age">
             <option [ngValue]="'1'" selected>до 8 років</option>
             <option [ngValue]="'2'">від 8 років</option>
           </select>
@@ -28,14 +28,14 @@
         <div class="form-group">
           <label for="price">Вартість авто за кордоном</label>
           <div class="form-inline">
-            <input [(ngModel)]="price" name="price" type="number" class="form-control col-9 col-md-10" id="price">
+            <input (change)="validatePrice()" [ngClass]="{'is-invalid': priceErr, 'is-valid': priceOk}" [(ngModel)]="price" name="price" type="text" class="form-control col-9 col-md-10" id="price">
             <span class="pl-2 pl-sm-4">EUR</span>
           </div>
         </div>
         <div class="form-group">
           <label for="engine">Робочий об'єм двигуна</label>
           <div class="form-inline">
-            <input [(ngModel)]="engine" name="price" type="engine" class="form-control col-9 col-md-10" id="engine">
+            <input (change)="validateEngine()" [ngClass]="{'is-invalid': engineErr, 'is-valid': engineOk}" [(ngModel)]="engine" name="price" type="engine" class="form-control col-9 col-md-10" id="engine">
             <span class="pl-2 pl-sm-4">см<sup>3</sup></span>
           </div>
         </div>
