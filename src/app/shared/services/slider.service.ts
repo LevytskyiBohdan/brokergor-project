@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ISlide } from '../interfaces/slide.interface';
-import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
@@ -10,7 +9,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class SliderService {
   data: Array<ISlide> = [];
-  // private url: string;
   
   constructor(private http: HttpClient, private AngularFirestore: AngularFirestore) { }
 
@@ -38,24 +36,4 @@ export class SliderService {
       this.AngularFirestore.doc('slider/' + id).delete();
     }
   }
-
-
-
-
-
-  // getData():Array<ISlide>{
-  //   return this.data;
-  // }
-
-  // public getSlide(): {
-  //   return this.http.get<Array<ISlide>>(this.url);
-  // }
-
-  // public addSlide(slide: ISlide): Observable<Array<ISlide>>{
-  //   return this.http.post<Array<ISlide>>(this.url, slide);
-  // }
-
-  // public deleteSlide(id: number): Observable<Array<ISlide>>{
-  //   return this.http.delete<Array<ISlide>>(`${this.url}/${id}`);
-  // }
 }

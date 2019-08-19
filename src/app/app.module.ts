@@ -80,7 +80,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     HttpClientModule,
     NgxUiLoaderModule,
     FormsModule,
-    NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 20}),
+    NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 45}),
     NgxUiLoaderModule, // import NgxUiLoaderModule
     NgxUiLoaderRouterModule,
     AngularFireModule.initializeApp(environment.firebase, 'brokergor'), // imports firebase/app needed for everything

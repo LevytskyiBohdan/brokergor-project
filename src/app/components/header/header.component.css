@@ -16,7 +16,7 @@ header {
 /* col */
 @media (max-width: 575.98px) {
     .repair{
-        height: 58px;
+        height: 48px;
     }
     #mobile-menu a{
         font-size: .8rem;
@@ -25,7 +25,7 @@ header {
 /* col-sm */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .repair{
-        height: 58px;
+        height: 48px;
     }
     #mobile-menu a{
         font-size: .8rem;
@@ -34,7 +34,7 @@ header {
 /* col-md */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .repair{
-        height: 58px;
+        height: 48px;
     }
     #mobile-menu a{
         font-size: .8rem;
@@ -43,12 +43,18 @@ header {
 /* col-lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .repair{
-        height: 80px;
+        height: 58px;
+    }
+    #desktop-menu a{
+        font-size: .8rem; 
     }
 }
 /* col-xl */
 @media (min-width: 1200px) {
     .repair{
-        height: 80px;
+        height: 58px;
+    }
+    #desktop-menu a{
+        font-size: .8rem; 
     }
 }

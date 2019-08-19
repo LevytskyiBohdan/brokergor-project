@@ -1,8 +1,8 @@
 <header id="header" class="container-fluid position-fixed pr-3"
     [ngClass]="{'bg-light': ThemeService.theme, 'bg-dark': !ThemeService.theme}">
-    <nav class="navbar navbar-expand-lg pr-1 pr-sm-3 "
+    <nav class="navbar navbar-expand-lg pr-1 pr-sm-3 pt-1 pb-1 pt-lg-2 pt-lg-2"
         [ngClass]="{'navbar-light bg-light': ThemeService.theme,'bg-dark navbar-dark': !ThemeService.theme}">
-        <a class="navbar-brand link mr-1 mr-sm-3" routerLink="/home">
+        <a class="navbar-brand link pt-0 pb-0 pt-lg-2 pb-lg-2 mr-1 mr-sm-3" routerLink="/home">
             <i class="fab fa-bootstrap d-inline-block align-top" style="font-size: 2rem"></i>
             roker
         </a>
@@ -28,6 +28,23 @@
                 <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/contacts">Контакти</a>
                 </li>
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link link" routerLinkActive="active" routerLink="/car">Оформлення транспортних
+                        засобів</a>
+                </li>
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/calculator">Калькулятор
+                        розмитнення</a>
+                </li>
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/import">Імпорт</a>
+                </li>
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/export">Експорт</a>
+                </li>
+                <li class="nav-item d-flex d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
+                </li>
 
 
 
@@ -40,30 +57,24 @@
                 <li class="nav-item d-none d-lg-flex">
                     <a class="nav-link link" routerLinkActive="active" routerLink="/contacts">Контакти</a>
                 </li>
-
-                <!-- Mobile dropdown begin -->
-                <li class="nav-item dropdown d-block d-lg-none">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Детальніше
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-toggle="collapse"
-                        data-target="#navbarSupportedContent">
-                        <a class="dropdown-item link d-block d-sm-none" routerLinkActive="active"
-                            routerLink="/car">Оформлення ТЗ</a>
-                        <a class="dropdown-item link d-none d-sm-block" routerLinkActive="active"
-                            routerLink="/car">Оформлення транспортних
-                            засобів</a>
-                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/calculator">Калькулятор
-                            розмитнення</a>
-
-                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/import">Імпорт</a>
-                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/export">Експорт</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
-                    </div>
+                <!-- <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active"
+                    routerLink="/car">Оформлення ТЗ</a>
                 </li>
-                <!-- Mobile dropdown end -->
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/calculator">Калькулятор
+                        розмитнення</a>
+                </li>
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/import">Імпорт</a>
+                </li>
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/export">Експорт</a>
+                </li>
+                <li class="nav-item d-none d-lg-flex">
+                    <a class="nav-link link" routerLinkActive="active" routerLink="/eur1">EUR.1</a>
+                </li> -->
+
 
                 <!-- Desktop dropdown begin -->
                 <li class="nav-item dropdown d-none d-lg-block">
@@ -89,7 +100,7 @@
 
             </ul>
 
-            <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
+            <!-- <div class="btn-group btn-group-toggle pt-3 pb-3 pr-0 pr-lg-5 pt-lg-0 pb-lg-0" data-toggle="buttons">
                 <label class="btn btn-secondary" (click)="themeToggle(true)" [ngClass]="{'active': ThemeService.theme}">
                     <input type="radio" name="options" id="option2" autocomplete="off"> <i class="far fa-sun"></i>
                 </label>
@@ -97,13 +108,13 @@
                     [ngClass]="{'active': !ThemeService.theme}">
                     <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fas fa-moon"></i>
                 </label>
-            </div>
+            </div> -->
 
             <address id="desktop-menu" class="navbar-nav d-none d-lg-flex flex-column mr-3">
                 <a *ngFor="let item of headerContact" href="tel:{{item.phone}}"
-                    class="nav-link m-0 p-1"><b>{{item.phone}}</b></a>
+                    class="nav-link m-0 p-0"><b>{{item.phone}}</b></a>
                 <a *ngFor="let item of headerContact" href="mailto:{{item.email}}" target="_top"
-                    class="nav-link m-0 p-1">{{item.email}}</a>
+                    class="nav-link m-0 p-0">{{item.email}}</a>
             </address>
         </div>
 
