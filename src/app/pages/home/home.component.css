@@ -163,6 +163,15 @@
         height: 50px!important;
         margin: 0 auto;
     }
+    .s5 .h1{
+        font-size: 1.3rem;
+    }
+    .s5 .h2{
+        font-size: 1.1rem;
+    }
+    .s5 .card{
+        width: 100%;
+    }
 
 }
 /* col-sm */
@@ -204,6 +213,26 @@
     }
     img.w-100{
         height: calc(100vh - 48px)!important;
+    }
+    .s4 .h1{
+        font-size: 1.4rem;
+    }
+    .s4 .card{
+        width: 47%;
+    }
+    .s4 .card-img-top{
+        width: 50px!important;
+        height: 50px!important;
+        margin: 0 auto;
+    }
+    .s5 .h1{
+        font-size: 1.4rem;
+    }
+    .s5 .h2{
+        font-size: 1.2rem;
+    }
+    .s5 .card{
+        width: 47%;
     }
 
 }
@@ -247,6 +276,26 @@
     img.w-100{
         height: calc(100vh - 48px)!important;
     }
+    .s4 .h1{
+        font-size: 1.4rem;
+    }
+    .s4 .card{
+        width: 24%;
+    }
+    .s4 .card-img-top{
+        width: 50px!important;
+        height: 50px!important;
+        margin: 0 auto;
+    }
+    .s5 .h1{
+        font-size: 1.4rem;
+    }
+    .s5 .h2{
+        font-size: 1.2rem;
+    }
+    .s5 .card{
+        width: 48%;
+    }
 }
 /* col-lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -289,6 +338,25 @@
     }
     img.w-100{
         height: calc(100vh - 58px)!important;
+    }.s4 .h1{
+        font-size: 1.7rem;
+    }
+    .s4 .card{
+        width: 24%;
+    }
+    .s4 .card-img-top{
+        width: 50px!important;
+        height: 50px!important;
+        margin: 0 auto;
+    }
+    .s5 .h1{
+        font-size: 1.7rem;
+    }
+    .s5 .h2{
+        font-size: 1.3rem;
+    }
+    .s5 .card{
+        width: 31%;
     }
 }
 /* col-xl */
@@ -332,5 +400,25 @@
     }
     img.w-100{
         height: calc(100vh - 58px)!important;
+    }
+    .s4 .h1{
+        font-size: 1.7rem;
+    }
+    .s4 .card{
+        width: 24%;
+    }
+    .s4 .card-img-top{
+        width: 50px!important;
+        height: 50px!important;
+        margin: 0 auto;
+    }
+    .s5 .h1{
+        font-size: 1.7rem;
+    }
+    .s5 .h2{
+        font-size: 1.3rem;
+    }
+    .s5 .card{
+        width: 31%;
     }
 }
