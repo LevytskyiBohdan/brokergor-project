@@ -7,7 +7,7 @@
                         <li data-target="#carouselExampleCaptions" *ngFor="let item of SliderService.data"
                             data-slide-to=""></li>
                     </ol>
-                    <div class="carousel-inner d-none d-sm-block">
+                    <div class="carousel-inner d-none d-sm-block position-reletive">
                         <div class="carousel-item" *ngFor="let item of SliderService.data; first as isFirst"
                             [ngClass]="{'active': isFirst}">
                             <img src="{{item.image}}" class="d-block w-100" alt="...">
@@ -109,7 +109,7 @@
             <div class="card mt-5 p-3">
                 <div class="card-body text-white text-center p-0">
                     <h5 class="card-title mb-4"><i class="fas fa-ship"></i></h5>
-                    <h4 class="card-subtitle mb-2 text-muted">МОРСКИМ ТРАНСПОРТОМ</h4>
+                    <h4 class="card-subtitle mb-2 text-muted">МОРСЬКИМ ТРАНСПОРТОМ</h4>
                 </div>
             </div>
             <div class="card mt-5 p-3">
@@ -188,7 +188,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 s5 d-flex flex-row flex-wrap justify-content-around mt-5 pt-3">
+        <div class="col-12 s5 d-flex flex-row flex-wrap justify-content-around mt-5 pt-3 pb-3 pb-lg-5">
             <p class="h1 d-block col-12 text-center pt-lg-4 pb-lg-2">НАШІ ПЕРЕВАГИ</p>
             <p class="h2 d-block col-12 text-center pb-sm-3">Чому з нами вигідно працювати</p>
             <div class="card pt-2 mb-2 mb-lg-3">
@@ -256,6 +256,40 @@
                         вигідних умовах з постійними клієнтами. Забезпечуємо ефективну партнерську співпрацю.</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="col-12 s6 pb-4 pb-lg-5">
+            <form #form="ngForm" class="pt-3 pb-3 col-12 col-md-10 ml-auto mr-auto mt-3">
+                <div class="form-group">
+                    <p class="h4 text-light">Зв'яжіться з нами:</p>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="name">Введіть ім'я</label>
+                    <input [(ngModel)]="name" name="name" (change)="validateName()" [ngClass]="{'is-invalid': className, 'is-valid': classNameOk}" type="text" class="form-control" id="name"
+                        aria-describedby="emailHelp" placeholder="ім'я..">
+                    <small *ngIf="className" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="email">Введіть email</label>
+                    <input [(ngModel)]="email" name="email" (change)="validateEmail()" [ngClass]="{'is-invalid': classEmail, 'is-valid': classEmailOk}" type="email" class="form-control" id="email"
+                        aria-describedby="emailHelp" placeholder="пошта..">
+                        <small *ngIf="classEmail" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="phone">Введіть номер телефону</label>
+                    <input [(ngModel)]="phone" name="phone" (change)="validatePhone()" [ngClass]="{'is-invalid': classPhone, 'is-valid': classPhoneOk}" type="text" class="form-control" id="phone"
+                        aria-describedby="emailHelp" placeholder="телефон..">
+                        <small *ngIf="classPhone" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="textarea">Введіть ваше запитання</label>
+                    <textarea [(ngModel)]="messageText" name="messageText" (change)="validateMessage()"  [ngClass]="{'is-invalid': classMessage, 'is-valid': classMessageOk}" class="form-control" id="textarea" rows="3"></textarea>
+                    <small *ngIf="classMessage" id="emailHelp" class="form-text text-danger">Виправте помилку. Мінімальна кількість символів - 30</small>
+                </div>
+                <button type="button" class="btn btn-success btn-block" (click)="sendMessage(form)">Надіслати
+                    повідомлення</button>
+            </form>
         </div>
     </div>
 </section>

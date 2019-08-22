@@ -28,16 +28,29 @@
     background-size: cover;
 }
 
+.s6{
+    background: url("https://firebasestorage.googleapis.com/v0/b/brokergor-4ccd1.appspot.com/o/images%2Fmain%2Fbg-clearance.jpg?alt=media&token=14de148b-df7e-44c6-aa09-a92fd7c1cbc0");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 /* ------------------------------------------------- */
 
-.bounce {
-    -webkit-animation-name: bounce;
+.carousel-inner i{
+    -webkit-animation-name: bounce; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite;
+    -webkit-position: relative;
     animation-name: bounce;
-    /* -webkit-transform-origin: center bottom;
-    transform-origin: center bottom; */
-  }
+    animation-duration: 2s;
+    position: relative;
+    animation-iteration-count: infinite;
+}
 
-@-webkit-keyframes bounce {
+
+  @-webkit-keyframes bounce {
     from,
     20%,
     53%,
@@ -102,7 +115,6 @@
       transform: translate3d(0, -4px, 0);
     }
   }
-  
 /* ----------------------------------------------------------------- */
 
 
@@ -134,6 +146,7 @@
     }
     .s2 button{
         font-size: 1.2rem;
+        line-height: 1.2rem;
     }
     .s3 .card{
         background: transparent;
@@ -172,6 +185,9 @@
     .s5 .card{
         width: 100%;
     }
+    .carousel-inner i{
+        top: 60%!important;
+    }
 
 }
 /* col-sm */
@@ -196,6 +212,7 @@
     }
     .s2 button{
         font-size: 1.3rem;
+        line-height: 1.3rem;
     }
     .s3 .card{
         background: transparent;
@@ -234,6 +251,9 @@
     .s5 .card{
         width: 47%;
     }
+    .carousel-inner i{
+        top: 60%!important;
+    }
 
 }
 /* col-md */
@@ -258,6 +278,7 @@
     }
     .s2 button{
         font-size: 1.3rem;
+        line-height: 1.3rem;
     }
     .s3 .card{
         background: transparent;
@@ -320,6 +341,7 @@
     }
     .s2 button{
         font-size: 1.7rem;
+        line-height: 1.7rem;
     }
     .s3 .card{
         background: transparent;
@@ -337,7 +359,7 @@
         font-size: 1.2rem
     }
     img.w-100{
-        height: calc(100vh - 58px)!important;
+        height: calc(100vh - 60px)!important;
     }.s4 .h1{
         font-size: 1.7rem;
     }
@@ -382,6 +404,7 @@
     }
     .s2 button{
         font-size: 2rem;
+        line-height: 2rem;
     }
     .s3 .card{
         background: transparent;
@@ -399,7 +422,7 @@
         font-size: 1rem
     }
     img.w-100{
-        height: calc(100vh - 58px)!important;
+        height: calc(100vh - 60px)!important;
     }
     .s4 .h1{
         font-size: 1.7rem;

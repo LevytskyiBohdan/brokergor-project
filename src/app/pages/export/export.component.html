@@ -1,9 +1,12 @@
 <section class="container">
-    <div class="row" id="export">
-        <div class="col-12 pb-2 pt-3">
-            <h2>Експорт</h2>
+    <div class="row pb-5" id="export">
+        <div class="col-12 pb-1 pt-3 s1 d-flex flex-column align-items-center justify-content-center">
+            <h2 class="text-center text-light mt-3 mt-lg-5">МИТНЕ ОФОРМЛЕННЯ</h2>
+            <h5 class="text-center text-light mb-5 mt-5">ЕКСПОРТУ</h5>
+            <button class="btn btn-light mb-4" (click)="message()">ОТРИМАТИ БЕЗКОШТОВНУ
+                КОНСУЛЬТАЦІЮ</button><br>
         </div>
-        <div class="col-12 text-justify">
+        <div class="col-12 pt-5 text-justify">
             <p><b>Експорт</b> – це вивезення з митної території країни товарів, послуг без зобов’язань про їх
                 зворотнє повернення. Окрім випуску у вільний обіг при вивезенні можуть застосовуватися й інші митні
                 режими: реекспорт, тимчасове вивезення, переробка за межами митної території України тощо.</p>
@@ -37,6 +40,40 @@
                 <li class="mb-2 change">здійснити митне оформлення товару;</li>
                 <li class="mb-2 change">вивезти товар з території України в установлений термін.</li>
             </ol>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="col-12 s6 pb-4 pb-lg-5 s2">
+            <form #form="ngForm" class="pt-3 pb-3 col-12 col-md-10 ml-auto mr-auto mt-3">
+                <div class="form-group">
+                    <p class="h4 text-light">Зв'яжіться з нами:</p>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="name">Введіть ім'я</label>
+                    <input [(ngModel)]="name" name="name" (change)="validateName()" [ngClass]="{'is-invalid': className, 'is-valid': classNameOk}" type="text" class="form-control" id="name"
+                        aria-describedby="emailHelp" placeholder="ім'я..">
+                    <small *ngIf="className" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="email">Введіть email</label>
+                    <input [(ngModel)]="email" name="email" (change)="validateEmail()" [ngClass]="{'is-invalid': classEmail, 'is-valid': classEmailOk}" type="email" class="form-control" id="email"
+                        aria-describedby="emailHelp" placeholder="пошта..">
+                        <small *ngIf="classEmail" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="phone">Введіть номер телефону</label>
+                    <input [(ngModel)]="phone" name="phone" (change)="validatePhone()" [ngClass]="{'is-invalid': classPhone, 'is-valid': classPhoneOk}" type="text" class="form-control" id="phone"
+                        aria-describedby="emailHelp" placeholder="телефон..">
+                        <small *ngIf="classPhone" id="emailHelp" class="form-text text-danger">Виправте помилку</small>
+                </div>
+                <div class="form-group">
+                    <label class="text-light" for="textarea">Введіть ваше запитання</label>
+                    <textarea [(ngModel)]="messageText" name="messageText" (change)="validateMessage()"  [ngClass]="{'is-invalid': classMessage, 'is-valid': classMessageOk}" class="form-control" id="textarea" rows="3"></textarea>
+                    <small *ngIf="classMessage" id="emailHelp" class="form-text text-danger">Виправте помилку. Мінімальна кількість символів - 30</small>
+                </div>
+                <button type="button" class="btn btn-success btn-block" (click)="sendMessage(form)">Надіслати
+                    повідомлення</button>
+            </form>
         </div>
     </div>
 </section>

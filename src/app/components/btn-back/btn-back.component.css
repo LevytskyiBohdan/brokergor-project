@@ -6,7 +6,7 @@ button{
     opacity: .35;
     outline: none!important;
     box-shadow: none!important;
-    height: 58px;
+    height: 60px;
     width: 30px;
 }
 button:hover{
@@ -23,18 +23,19 @@ button:focus{
 /* @Media query */
 @media (max-width: 575.98px) {
    button{
-       height: 48px;
+       display: none;
    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     button{
-        height: 48px;
+        display: none;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     button{
+        display: block;
         height: 48px;
     }
 }

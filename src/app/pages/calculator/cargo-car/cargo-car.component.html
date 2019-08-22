@@ -8,6 +8,7 @@
                         <option [ngValue]="'truck'">вантажівка</option>
                         <option [ngValue]="'tractor'">тягач</option>
                     </select>
+                    <small class="form-text text-danger" *ngIf="bodyTypeErr" >Виберіть один із варіантів</small>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
                     <label for="fuel">Пальне</label>
@@ -15,6 +16,7 @@
                         <option [ngValue]="'fuel'">бензин</option>
                         <option [ngValue]="'fuelDisel'">дизель</option>
                     </select>
+                    <small class="form-text text-danger" *ngIf="fuelErr" >Виберіть один із варіантів</small>
                 </div>
                 <div class="form-group">
                     <label for="country">Країна похождення</label>
@@ -24,6 +26,7 @@
                         <option [ngValue]="'3'">ЄС</option>
                         <option [ngValue]="'4'">Канада</option>
                     </select>
+                    <small class="form-text text-danger" *ngIf="countryErr" >Виберіть один із варіантів</small>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
                     <label for="age">Вік авто</label>
@@ -32,6 +35,7 @@
                         <option [ngValue]="'3'">від 5 до 8 років</option>
                         <option [ngValue]="'4'">від 8 років</option>
                     </select>
+                    <small class="form-text text-danger" *ngIf="ageErr" >Виберіть один із варіантів</small>
                 </div>
                 <div class="form-group">
                     <label for="price">Вартість авто за кордоном</label>
@@ -39,6 +43,7 @@
                         <input (change)="validatePrice()" [ngClass]="{'is-invalid': priceErr, 'is-valid': priceOk}" [(ngModel)]="price" name="price" type="text" class="form-control col-9 col-md-10" id="price">
                     <span class="pl-2 pl-sm-4">EUR</span>
                     </div>
+                    <small class="form-text text-danger" *ngIf="priceErr" >Вкажіть вартість</small>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
                     <label for="engine">Робочий об'єм двигуна</label>
@@ -46,6 +51,7 @@
                         <input (change)="validateEngine()" [ngClass]="{'is-invalid': engineErr, 'is-valid': engineOk}" [(ngModel)]="engine" name="engine" type="text" class="form-control col-9 col-md-10" id="engine">
                     <span class="pl-2 pl-sm-4">см<sup>3</sup></span>
                     </div>
+                    <small class="form-text text-danger" *ngIf="engineErr" >Вкажіть об'єм двигуна в см<sup>3</sup></small>
                 </div>
                 <div class="form-group" *ngIf="formCheckCarBody">
                     <label for="weight">Повна маса</label>
@@ -54,6 +60,7 @@
                         <option [ngValue]="'2'">від 5 до 20 тон</option>
                         <option [ngValue]="'3'">від 20 тон</option>
                     </select>
+                    <small class="form-text text-danger" *ngIf="weightErr" >Виберіть один із варіантів</small>
                 </div>
                 <button type="button" class="btn btn-success btn-block mt-4" (click)="culcPrice()">Розрахувати вартість</button>
             </form>

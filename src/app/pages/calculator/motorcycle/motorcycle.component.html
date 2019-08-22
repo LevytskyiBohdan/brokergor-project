@@ -12,6 +12,7 @@
             <option [ngValue]="'electricBike'">електровелосипед</option>
             <option [ngValue]="'electricMotorcycle'">електромотоцикл</option>
           </select>
+          <small class="form-text text-danger" *ngIf="bodyTypeErr" >Виберіть один із варіантів</small>
         </div>
         <div class="form-group">
           <label for="country">Країна похождення</label>
@@ -22,12 +23,14 @@
             <option [ngValue]="'1'">ЄС</option>
             <option [ngValue]="'0.05'">Канада</option>
           </select>
+          <small class="form-text text-danger" *ngIf="countryErr" >Виберіть один із варіантів</small>
         </div>
         <div class="form-group">
           <label for="price">Вартість авто за кордоном</label>
           <div class="form-inline">
             <input (change)="validatePrice()" [ngClass]="{'is-invalid': priceErr, 'is-valid': priceOk}" [(ngModel)]="price" name="price" type="text" class="form-control col-9 col-md-10" id="price" placeholder="введіть вартьсть авто в EUR">
             <span class="pl-2 pl-sm-4">EUR</span>
+            <small class="form-text text-danger" *ngIf="priceErr" >Вкажіть вартість</small>
           </div>
         </div>
         <div class="form-group" *ngIf="formCheckBodyType">
@@ -35,6 +38,7 @@
           <div class="form-inline">
             <input (change)="validateEngine()" [ngClass]="{'is-invalid': engineErr, 'is-valid': engineOk}" [(ngModel)]="engine" name="engine" type="text" class="form-control col-9 col-md-10" id="engine" placeholder="введіть об'єм двигуна">
             <span class="pl-2 pl-sm-4">см<sup>3</sup></span>
+            <small class="form-text text-danger" *ngIf="engineErr" >Вкажіть об'єм двигуна в см<sup>3</sup></small>
           </div>
         </div>
         <button type="button" class="btn btn-success btn-block mt-4" (click)="culcPrice()">Розрахувати вартість</button>

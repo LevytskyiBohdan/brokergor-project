@@ -43,7 +43,7 @@ header {
 /* col-lg */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .repair{
-        height: 58px;
+        height: 60px;
     }
     #desktop-menu a{
         font-size: .8rem; 
@@ -52,7 +52,7 @@ header {
 /* col-xl */
 @media (min-width: 1200px) {
     .repair{
-        height: 58px;
+        height: 60px;
     }
     #desktop-menu a{
         font-size: .8rem; 

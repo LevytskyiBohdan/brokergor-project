@@ -45,6 +45,11 @@ export class ContactsComponent implements OnInit {
     });
   }
 
+  messageJivo():void{
+    //@ts-ignore
+    jivo_api.open();
+  }
+
   validateName(): void {
     if (this.RegexService.validateName(this.name)) {
       this.classNameOk = true;

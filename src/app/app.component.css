@@ -18,12 +18,12 @@
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
     main{
-        min-height: calc(100vh - 58px) ;
+        min-height: calc(100vh - 60px) ;
     }
 }
 
 @media (min-width: 1200px) {
     main{
-        min-height: calc(100vh - 58px) ;
+        min-height: calc(100vh - 60px) ;
     }
 }

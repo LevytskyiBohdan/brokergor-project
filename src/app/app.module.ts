@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 // NGXuiLoader
-import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from  'ngx-ui-loader';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule, NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION } from  'ngx-ui-loader';
 
 // ngx-toastr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,6 +49,19 @@ import { ContactService } from './shared/services/contact.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  bgsColor: '#791111',
+  bgsPosition: POSITION.bottomCenter,
+  bgsSize: 40,
+  bgsType: SPINNER.rectangleBounce, // background spinner type
+  fgsColor: '#791111',
+  fgsType: SPINNER.chasingDots, // foreground spinner type
+  pbColor: '#791111',
+  pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
+  pbThickness: 5, // progress bar thickness
+  blur: 5,
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +94,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     NgxUiLoaderModule,
     FormsModule,
     NgxPageScrollCoreModule.forRoot({duration: 700, scrollOffset: 45}),
-    NgxUiLoaderModule, // import NgxUiLoaderModule
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), // import NgxUiLoaderModule
     NgxUiLoaderRouterModule,
     AngularFireModule.initializeApp(environment.firebase, 'brokergor'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
