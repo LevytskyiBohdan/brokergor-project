@@ -82,7 +82,7 @@
                     <textarea [(ngModel)]="messageText" name="messageText" (change)="validateMessage()"  [ngClass]="{'is-invalid': classMessage, 'is-valid': classMessageOk}" class="form-control" id="textarea" rows="3"></textarea>
                     <small *ngIf="classMessage" id="emailHelp" class="form-text text-danger">Виправте помилку. Мінімальна кількість символів - 30</small>
                 </div>
-                <button type="button" class="btn btn-success btn-block" (click)="sendMessage(form)">Надіслати
+                <button type="button" style="background: #791111" class="btn btn-block text-light" (click)="sendMessage(form)">Надіслати
                     повідомлення</button>
             </form>
         </div>
