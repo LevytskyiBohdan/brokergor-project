@@ -22,6 +22,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 // Guard
 import { AdminGuard } from './shared/guard/admin.guard';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
+import { NewsComponent } from './pages/news/news.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'price', component: PriceComponent},
   {path: 'contacts', component: ContactsComponent},
+  {path: 'news', component: NewsComponent},
   {path: 'car', component: CarComponent},
   {path: 'export', component: ExportComponent},
   {path: 'import', component: ImportComponent},

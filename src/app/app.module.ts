@@ -48,6 +48,7 @@ import { ThemeService } from './shared/services/theme.service';
 import { ContactService } from './shared/services/contact.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { NewsComponent } from './pages/news/news.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#791111',
@@ -85,7 +86,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     BusesComponent,
     AdminSliderComponent,
     BtnBackComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
