@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 pt-5">
+            <form #form="ngForm" class="border border-dark rounded p-3">
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input [(ngModel)]="title" name="title" type="text" class="form-control" id="title"
+                        placeholder="заголовок..">
+                </div>
+                <div class="form-group">
+                    <label for="article">Example textarea</label>
+                    <textarea [(ngModel)]="article" name="article" class="form-control" id="article" rows="10"
+                        placeholder="стаття.."></textarea>
+                </div>
+                <div class="custom-file">
+                    <input (change)="upload($event)" accept=".png,.jpg,.jpeg,.webp" type="file"
+                        class="custom-file-input" id="validatedCustomFile" required>
+                    <label class="custom-file-label" for="validatedCustomFile">Виберіть картинку</label>
+                </div>
+                <div class="progress mt-3">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info mt-3" role="alert">
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                </div>
+                <div class="btn-group mt-3 mb-3" role="group" *ngIf="uploadState | async; let state">
+                    <button type="button" class="btn btn-primary" (click)="task.pause()"
+                        [disabled]="state === 'paused'">Pause</button>
+                    <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                        [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="task.resume()"
+                        [disabled]="state === 'running'">Resume</button>
+                </div>
+
+                <button *ngIf="buttonToggle" class="btn btn-success btn-block mt-3" (click)="addNews(form)">Добавити добис</button>
+                <button *ngIf="!buttonToggle" class="btn btn-warning btn-block mt-3"
+                    (click)="saveEditNews(form)">Зберегти зміни</button>
+            </form>
+        </div>
+        <div class="col-12 pt-5 pb-5">
+            <div class="border border-dark rounded p-3 d-flex flex-column justify-content-around">
+                <div class="card col-12 mb-3 pt-3" *ngFor="let item of NewsService.data">
+                    <img src="{{item.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p style="height: 9.2rem; overflow: hidden;" class="card-text">{{item.article}}</p>
+                        <button (click)="editNews(item)" class="btn btn-warning btn-block">Редагувати</button>
+                        <button (click)="deleteNews(item.id)" class="btn btn-danger btn-block">Видалити</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

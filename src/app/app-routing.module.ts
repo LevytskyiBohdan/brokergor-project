@@ -23,6 +23,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { AdminGuard } from './shared/guard/admin.guard';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 import { NewsComponent } from './pages/news/news.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -31,6 +33,7 @@ const routes: Routes = [
   {path: 'price', component: PriceComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'news', component: NewsComponent},
+  {path: 'news/:id', component: NewsDetailsComponent},
   {path: 'car', component: CarComponent},
   {path: 'export', component: ExportComponent},
   {path: 'import', component: ImportComponent},
@@ -41,6 +44,7 @@ const routes: Routes = [
     {path: 'price', component: AdminPriceComponent},
     {path: 'contacts', component: AdminContactsComponent},
     {path: 'sliderAdmin', component: AdminSliderComponent},
+    {path: 'news', component: AdminNewsComponent},
   ], canActivate: [AdminGuard]},
   {path: 'calculator', component: CalculatorComponent, children:[
     {path: '', redirectTo: 'passenger-car', pathMatch: 'full'},

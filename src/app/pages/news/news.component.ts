@@ -8,13 +8,15 @@ import { INews } from 'src/app/shared/interfaces/news.interface';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-
-  point: string = "...";
-
+  
   constructor(public NewsService: NewsService) { }
 
   ngOnInit() {
     this.NewsService.getData();
+  }
+  messageJivo():void{
+    //@ts-ignore
+    jivo_api.open();
   }
 
 

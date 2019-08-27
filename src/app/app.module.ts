@@ -49,6 +49,8 @@ import { ContactService } from './shared/services/contact.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { NewsComponent } from './pages/news/news.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#791111',
@@ -87,7 +89,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AdminSliderComponent,
     BtnBackComponent,
     AuthenticationComponent,
-    NewsComponent
+    NewsComponent,
+    AdminNewsComponent,
+    NewsDetailsComponent
   ],
   imports: [
     BrowserModule,
