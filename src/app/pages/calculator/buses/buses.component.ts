@@ -116,7 +116,7 @@ export class BusesComponent implements OnInit {
     }
   }
   validatePrice(): void {
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
       this.priceOk = true;
     } else {
@@ -125,7 +125,7 @@ export class BusesComponent implements OnInit {
     }
   }
   validateEngine(): void {
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
       this.engineOk = true;
     } else {
@@ -154,17 +154,17 @@ export class BusesComponent implements OnInit {
     } else {
       this.ageErr = true;
     }
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
     } else {
       this.priceErr = true;
     }
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
     } else {
       this.engineErr = true;
     }
-    if (!this.fuelErr && !this.countryErr && !this.ageErr && !this.priceErr && !this.engineErr){
+    if (!this.fuelErr && !this.countryErr && !this.ageErr && !this.priceErr && !this.engineErr) {
       this.calculator();
     } else {
       this.ToastrService.error('Заповніть форму', 'Помилка', {
@@ -173,7 +173,7 @@ export class BusesComponent implements OnInit {
     }
   }
 
-  sendMessage(form): void {
+  sendMessage(form, formCalc): void {
     // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
@@ -188,7 +188,22 @@ export class BusesComponent implements OnInit {
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
     })
+    this.ToastrService.success('Наш представник невдовзі зв\'яжеться з вами', 'Повідомлення надіслано', {
+      timeOut: 6000,
+    })
+    form.reset();
+    formCalc.reset();
+    this.fuelErr = false;
+    this.countryErr = false;
+    this.ageErr = false;
+    this.priceErr = false;
+    this.engineErr = false;
 
+    this.fuelOk = false;
+    this.countryOk = false;
+    this.ageOk = false;
+    this.priceOk = false;
+    this.engineOk = false;
   }
 
 

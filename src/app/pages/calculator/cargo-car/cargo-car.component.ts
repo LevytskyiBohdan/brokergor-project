@@ -121,7 +121,7 @@ export class CargoCarComponent implements OnInit {
   }
 
   validateBodyType(): void {
-    if (this.bodyType != undefined){
+    if (this.bodyType != undefined) {
       this.bodyTypeErr = false;
       this.bodyTypeOk = true;
     } else {
@@ -130,7 +130,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validateFuel(): void {
-    if (this.fuel != undefined){
+    if (this.fuel != undefined) {
       this.fuelErr = false;
       this.fuelOk = true;
     } else {
@@ -139,7 +139,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validateCountry(): void {
-    if (this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
       this.countryOk = true;
     } else {
@@ -148,7 +148,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validateAge(): void {
-    if (this.age != undefined){ 
+    if (this.age != undefined) {
       this.ageErr = false;
       this.ageOk = true;
     } else {
@@ -157,7 +157,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validatePrice(): void {
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
       this.priceOk = true;
     } else {
@@ -166,7 +166,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validateEngine(): void {
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
       this.engineOk = true;
     } else {
@@ -175,7 +175,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
   validateWaight(): void {
-    if (this.weight != undefined){
+    if (this.weight != undefined) {
       this.weightErr = false;
       this.weightOk = true;
     } else {
@@ -184,52 +184,52 @@ export class CargoCarComponent implements OnInit {
     }
   }
   public culcPrice(): void {
-  //   bodyType: string;
-  // fuel: string;
-  // country: number;
-  // age: number;
-  // price: number;
-  // engine: number;
-  // weight: number;
+    //   bodyType: string;
+    // fuel: string;
+    // country: number;
+    // age: number;
+    // price: number;
+    // engine: number;
+    // weight: number;
 
-    if (this.bodyType != undefined){
+    if (this.bodyType != undefined) {
       this.bodyTypeErr = false;
     } else {
       this.bodyTypeErr = true;
     }
-    if (this.fuel != undefined){
+    if (this.fuel != undefined) {
       this.fuelErr = false;
     } else {
       this.fuelErr = true;
     }
-    if (this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
     } else {
       this.countryErr = true;
     }
-    if (this.age != undefined){ 
+    if (this.age != undefined) {
       this.ageErr = false;
     } else {
       this.ageErr = true;
     }
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
     } else {
       this.priceErr = true;
     }
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
     } else {
       this.engineErr = true;
     }
-    if (this.weight != undefined){
+    if (this.weight != undefined) {
       this.weightErr = false;
     } else {
       this.weightErr = true;
     }
-    if (this.bodyType == 'truck' && this.fuel != undefined && this.country != undefined && this.age != undefined && this.RegexService.validateNumber(this.price) && this.RegexService.validateNumber(this.engine) && this.weight != undefined){
+    if (this.bodyType == 'truck' && this.fuel != undefined && this.country != undefined && this.age != undefined && this.RegexService.validateNumber(this.price) && this.RegexService.validateNumber(this.engine) && this.weight != undefined) {
       this.calculator();
-    } else if (this.bodyType == 'tractor' && this.country != undefined && this.RegexService.validateNumber(this.price)){
+    } else if (this.bodyType == 'tractor' && this.country != undefined && this.RegexService.validateNumber(this.price)) {
       this.calculator();
     } else {
       this.ToastrService.error('Заповніть форму', 'Помилка', {
@@ -238,7 +238,7 @@ export class CargoCarComponent implements OnInit {
     }
   }
 
-  sendMessage(form):void{
+  sendMessage(form, formCalc): void {
     // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
@@ -253,6 +253,26 @@ export class CargoCarComponent implements OnInit {
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
     })
+    this.ToastrService.success('Наш представник невдовзі зв\'яжеться з вами', 'Повідомлення надіслано', {
+      timeOut: 6000,
+    })
+    form.reset();
+    formCalc.reset();
+    this.bodyTypeErr = false;
+    this.fuelErr = false;
+    this.countryErr = false;
+    this.ageErr = false;
+    this.priceErr = false;
+    this.engineErr = false;
+    this.weightErr = false;
+
+    this.bodyTypeOk = false;
+    this.fuelOk = false;
+    this.countryOk = false;
+    this.ageOk = false;
+    this.priceOk = false;
+    this.engineOk = false;
+    this.weightOk = false;
   }
 
 

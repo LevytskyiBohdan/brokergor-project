@@ -55,14 +55,14 @@ export class MotorcycleComponent implements OnInit {
     this.price = Number(this.price);
     this.engine = Number(this.engine);
     if (this.bodyType == "motorcycle") {
-        // Мито
+      // Мито
       if (this.engine >= 51 && this.engine <= 125 && this.country == 1) {
         this.importDuty = Math.floor(this.price * 0.033);
       } else {
         this.importDuty = Math.floor(this.price * this.country);
       }
 
-        // Акциз
+      // Акциз
       if (this.engine < 500) {
         this.exciseDuty = Math.floor(this.engine * 0.062);
       } else if (this.engine >= 500 && this.engine <= 800) {
@@ -76,13 +76,13 @@ export class MotorcycleComponent implements OnInit {
 
 
     else if (this.bodyType == "scooter") {
-        // Мито
+      // Мито
       if (this.engine >= 50 && this.engine <= 250 && this.country == 1) {
         this.importDuty = Math.floor(this.price * 0.033);
       } else {
         this.importDuty = Math.floor(this.price * this.country);
       }
-        // Акциз
+      // Акциз
       if (this.engine < 500) {
         this.exciseDuty = Math.floor(this.engine * 0.062);
       } else if (this.engine >= 500 && this.engine <= 800) {
@@ -94,13 +94,13 @@ export class MotorcycleComponent implements OnInit {
       this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
 
     } else if (this.bodyType == "moped") {
-        // Мито
+      // Мито
       if (this.engine >= 50 && this.engine <= 250 && this.country == 1) {
         this.importDuty = Math.floor(this.price * 0);
       } else {
         this.importDuty = Math.floor(this.price * this.country);
       }
-        // Акциз
+      // Акциз
       if (this.engine < 500) {
         this.exciseDuty = Math.floor(this.engine * 0.062);
       } else if (this.engine >= 500 && this.engine <= 800) {
@@ -111,16 +111,16 @@ export class MotorcycleComponent implements OnInit {
       this.VAT = Math.floor((this.price + this.importDuty + this.exciseDuty) * 0.2);
       this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
     } else if (this.bodyType == "electricBike" || this.bodyType == "electricMotorcycle") {
-       // Мито
-       if (this.country == 0.05) {
+      // Мито
+      if (this.country == 0.05) {
         this.importDuty = Math.floor(this.price * 0.05);
-      } else if(this.country == 0.1){
+      } else if (this.country == 0.1) {
         this.importDuty = Math.floor(this.price * 0.1);
-      } else{
+      } else {
         this.importDuty = Math.floor(this.price * this.country);
       }
-        // Акциз
-        this.exciseDuty = 22;
+      // Акциз
+      this.exciseDuty = 22;
 
       this.VAT = Math.floor((this.price + this.importDuty + this.exciseDuty) * 0.2);
       this.fullPrice = Math.floor(this.importDuty + this.exciseDuty + this.VAT + this.price);
@@ -129,7 +129,7 @@ export class MotorcycleComponent implements OnInit {
   }
 
   validateBodyType(): void {
-    if(this.bodyType != undefined){
+    if (this.bodyType != undefined) {
       this.bodyTypeErr = false;
       this.bodyTypeOk = true;
     } else {
@@ -138,7 +138,7 @@ export class MotorcycleComponent implements OnInit {
     }
   }
   validateCountry(): void {
-    if(this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
       this.countryOk = true;
     } else {
@@ -147,7 +147,7 @@ export class MotorcycleComponent implements OnInit {
     }
   }
   validatePrice(): void {
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
       this.priceOk = true;
     } else {
@@ -156,7 +156,7 @@ export class MotorcycleComponent implements OnInit {
     }
   }
   validateEngine(): void {
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
       this.engineOk = true;
     } else {
@@ -166,29 +166,29 @@ export class MotorcycleComponent implements OnInit {
   }
 
   public culcPrice(): void {
-    if(this.bodyType != undefined){
+    if (this.bodyType != undefined) {
       this.bodyTypeErr = false;
     } else {
       this.bodyTypeErr = true;
     }
-    if(this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
     } else {
       this.countryErr = true;
     }
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
     } else {
       this.priceErr = true;
     }
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
     } else {
       this.engineErr = true;
     }
-    if((this.bodyType == 'motorcycle'||this.bodyType == 'scooter'||this.bodyType == 'moped') && !this.countryErr && !this.priceErr && !this.engineErr){
+    if ((this.bodyType == 'motorcycle' || this.bodyType == 'scooter' || this.bodyType == 'moped') && !this.countryErr && !this.priceErr && !this.engineErr) {
       this.culculator();
-    } else if((this.bodyType == 'electricBike' || this.bodyType == 'electricMotorcycle') && !this.countryErr && !this.priceErr){
+    } else if ((this.bodyType == 'electricBike' || this.bodyType == 'electricMotorcycle') && !this.countryErr && !this.priceErr) {
       this.culculator();
     } else {
       this.ToastrService.error('Заповніть форму', 'Помилка', {
@@ -197,10 +197,10 @@ export class MotorcycleComponent implements OnInit {
     }
   }
 
-  
 
 
-  sendMessage(form):void{
+
+  sendMessage(form, formCalc): void {
     // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
@@ -215,7 +215,20 @@ export class MotorcycleComponent implements OnInit {
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
     })
-    
+    this.ToastrService.success('Наш представник невдовзі зв\'яжеться з вами', 'Повідомлення надіслано', {
+      timeOut: 6000,
+    })
+    form.reset();
+    formCalc.reset();
+    this.bodyTypeErr = false;
+    this.countryErr = false;
+    this.priceErr = false;
+    this.engineErr = false;
+
+    this.bodyTypeOk = false;
+    this.countryOk = false;
+    this.priceOk = false;
+    this.engineOk = false;
   }
 
 

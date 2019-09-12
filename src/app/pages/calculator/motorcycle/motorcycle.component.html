@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row pt-3 pb-5">
     <div class="col-12 col-lg 6">
-      <form class="pt-3 pb-3">
+      <form #formCalc="ngForm" class="pt-3 pb-3">
         <div class="form-group">
           <label for="bodyType">Тип кузова</label>
           <select class="form-control" id="bodyType" (change)="bodyTypeChange()" (change)="validateBodyType()" [ngClass]="{'is-invalid': bodyTypeErr, 'is-valid': bodyTypeOk}" [(ngModel)]="bodyType" name="bodyType">
@@ -109,7 +109,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" aria-hidden="true" (click)="sendMessage(form)" aria-hidden="true">Відправити</button>
+        <button type="button" class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" aria-hidden="true" (click)="sendMessage(form, formCalc)" aria-hidden="true">Відправити</button>
       </div>
     </div>
   </div>

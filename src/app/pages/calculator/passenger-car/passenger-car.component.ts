@@ -71,7 +71,7 @@ export class PassengerCarComponent implements OnInit {
     } else if (this.fuel == "fuelDisel") {
       this.importDuty = Math.floor(Number(this.price) * Number(this.country));
       this.exciseDuty = Math.floor((Number(this.age) * Number(this.engine) * 0.75) * 0.1);
-      this.VAT = Math.floor((Number(this.exciseDuty)+ Number(this.importDuty) + Number(this.price)) * 0.2);
+      this.VAT = Math.floor((Number(this.exciseDuty) + Number(this.importDuty) + Number(this.price)) * 0.2);
       this.fullPrice = Math.floor(Number(this.importDuty) + Number(this.exciseDuty) + Number(this.VAT) + Number(this.price));
     } else if (this.fuel == "electric") {
       this.importDuty = 0;
@@ -88,8 +88,8 @@ export class PassengerCarComponent implements OnInit {
   }
 
   // validate begin
-  validateFuel():void {
-    if(this.fuel != undefined){
+  validateFuel(): void {
+    if (this.fuel != undefined) {
       this.fuelErr = false;
       this.fuelOk = true;
     } else {
@@ -97,9 +97,9 @@ export class PassengerCarComponent implements OnInit {
       this.fuelOk = false;
     }
   }
-  
+
   validateCountry(): void {
-    if(this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
       this.countryOk = true;
     } else {
@@ -109,7 +109,7 @@ export class PassengerCarComponent implements OnInit {
   }
 
   validateAge(): void {
-    if (this.age != undefined){
+    if (this.age != undefined) {
       this.ageErr = false;
       this.ageOk = true;
     } else {
@@ -119,7 +119,7 @@ export class PassengerCarComponent implements OnInit {
   }
 
   validatePrice(): void {
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
       this.priceOk = true;
     } else {
@@ -129,7 +129,7 @@ export class PassengerCarComponent implements OnInit {
   }
 
   validateEngine(): void {
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
       this.engineOk = true;
     } else {
@@ -139,41 +139,41 @@ export class PassengerCarComponent implements OnInit {
   }
 
   validateBatery(): void {
-    if (this.RegexService.validateNumber(this.batery)){
+    if (this.RegexService.validateNumber(this.batery)) {
       this.bateryErr = false;
     } else {
       this.bateryErr = true;
     }
   }
   // validate end
-  
+
   public culcPrice(): void {
-    if(this.fuel != undefined){
+    if (this.fuel != undefined) {
       this.fuelErr = false;
     } else {
       this.fuelErr = true;
     }
-    if(this.country != undefined){
+    if (this.country != undefined) {
       this.countryErr = false;
     } else {
       this.countryErr = true;
     }
-    if (this.age != undefined){
+    if (this.age != undefined) {
       this.ageErr = false;
     } else {
       this.ageErr = true;
     }
-    if (this.RegexService.validateNumber(this.price)){
+    if (this.RegexService.validateNumber(this.price)) {
       this.priceErr = false;
     } else {
       this.priceErr = true;
     }
-    if (this.RegexService.validateNumber(this.engine)){
+    if (this.RegexService.validateNumber(this.engine)) {
       this.engineErr = false;
     } else {
       this.engineErr = true;
     }
-    if (this.RegexService.validateNumber(this.batery)){
+    if (this.RegexService.validateNumber(this.batery)) {
       this.bateryErr = false;
     } else {
       this.bateryErr = true;
@@ -182,19 +182,19 @@ export class PassengerCarComponent implements OnInit {
     if (!this.fuelErr && !this.countryErr && !this.ageErr && !this.priceErr && !this.engineErr) {
       this.calculator();
 
-    }else if(this.fuel == 'electric' && !this.countryErr && !this.priceErr &&!this.bateryErr) {
+    } else if (this.fuel == 'electric' && !this.countryErr && !this.priceErr && !this.bateryErr) {
       this.calculator();
-    }else if(this.fuel == 'gibrid' && !this.countryErr && !this.priceErr) {
+    } else if (this.fuel == 'gibrid' && !this.countryErr && !this.priceErr) {
       this.calculator();
     }
-    else{
+    else {
       this.ToastrService.error('Заповніть форму', 'Помилка', {
         timeOut: 4000,
       })
     }
   }
 
-  sendMessage(form): void {
+  sendMessage(form, formCalc): void {
     // @ts-ignore
     jivo_api.sendMessage({
       "name": form.value.nameCli,
@@ -209,6 +209,24 @@ export class PassengerCarComponent implements OnInit {
       "email": form.value.emailCli,
       "phone": form.value.phoneCli,
     })
+    this.ToastrService.success('Наш представник невдовзі зв\'яжеться з вами', 'Повідомлення надіслано', {
+      timeOut: 6000,
+    })
+    form.reset();
+    formCalc.reset();
+    this.fuelErr = false;
+    this.countryErr = false;
+    this.ageErr = false;
+    this.priceErr = false;
+    this.engineErr = false;
+    this.bateryErr = false;
+
+    this.fuelOk = false;
+    this.countryOk = false;
+    this.ageOk = false;
+    this.priceOk = false;
+    this.engineOk = false;
+    this.bateryOk = false;
 
   }
 
